@@ -1,0 +1,191 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+    title "Avion"
+}
+
+Viewpoint {
+    position 0.0 0.0 5.0
+    description "Entry view"
+}
+
+NavigationInfo {
+    type [ "EXAMINE", "ANY" ]
+    headlight TRUE
+}
+
+Background {
+    skyColor    [ 0.0 0.0 1.0 ]
+    groundColor [ 0.0 0.0 1.0 ]
+}
+
+# AVION - cvor koji oznacava cijeli objekt
+DEF Avion Transform{
+	children[
+		# TRUP
+		DEF Trup Transform {
+			children [
+			Transform {
+				scale 1.9 0.3 0.4
+				children[
+				DEF Kugla1 Shape {
+					appearance Appearance {
+						material Material {
+							diffuseColor 1.0 1.0 1.0
+						}
+						texture ImageTexture {		#tekstura na trupu i repu
+							url ["trup.jpg"] 
+						}
+					}
+					geometry Sphere { }
+				}
+			]
+			}
+			# REP
+			Transform {
+				translation -1.5 0.25 0.0
+				rotation 0.0 0.0 1.0 -0.8
+				scale 0.5 0.2 0.075
+				children [ USE Kugla1 ]
+			} 
+			]
+		}
+		
+		# KRILO (D)
+		DEF KriloD Transform {
+			children [
+			Transform {
+				translation -0.3 -0.1 0.75
+				rotation 0.0 1.0 0.0 1.0
+				scale 1.2 0.08 0.4
+				children [
+					DEF Kugla2 Shape {
+						appearance Appearance {
+							material Material { 
+								diffuseColor 1.0 1.0 1.0 
+							}
+						}
+						geometry Sphere { }
+					}
+				]
+			}
+			]
+		}
+		
+		# KRILO (L) - koristi se desno ali okrenuto
+		DEF KriloL Transform {
+			children [
+			Transform {
+				translation 0.26 0.0 -0.2
+				rotation 0.0 1.0 0.0 -2.0
+				children [ USE KriloD ]
+			}
+		]
+		}
+		
+		# REPNO KRILO (D) - koristi se modificirano desno krilo 
+		DEF KriloRD Transform {
+			children [
+			Transform {
+				translation -1.75 0.575 0.1
+				scale 0.3 0.3 0.3
+				children [ USE KriloD ]
+			}
+		]
+		}
+		
+		# REPNO KRILO (L) - koristi se modificirano desno krilo
+		DEF KriloRL Transform {
+			children [
+			Transform {
+				translation -1.75 0.575 -0.15
+				rotation 0.0 1.0 0.0 -2.0
+				scale 0.3 0.3 0.3
+				children [ USE KriloD ]
+			}
+		]
+		}
+		
+		# PROPELER (D) 
+		#sastoji se od vise child objekata spojenih u jedan propeler
+		DEF PropelerD Transform {
+			translation -0.2 -0.1 1.0
+			scale 1.25 1.25 1.25
+			children [
+				# TIJELO PROPELERA
+				DEF TijeloPro Transform {
+					scale 0.38 0.075 0.1
+					children [ 
+						DEF Kugla3 Shape {
+							appearance Appearance {
+								material Material { 
+									diffuseColor 1.0 1.0 1.0 
+								}
+							}
+							geometry Sphere { }
+						} 
+					]
+				}
+				# KRAK PROPELERA (vertikalni)
+				DEF KrakProGD Transform {
+					translation 0.36 0.0 0.0
+					scale 0.02 0.2 0.02
+					children [ 
+						DEF Kugla4 Shape {
+							appearance Appearance {
+								material Material { 
+									diffuseColor 1.0 1.0 1.0 
+								}
+							}
+							geometry Sphere { }
+						} 
+					]
+				}
+				# KRAK PROPELERA (horizontalni)
+				DEF KrakProLD Transform {
+					rotation 1.0 0.0 0.0 1.57
+					children [ USE KrakProGD ]
+				}
+			]
+		}
+		
+		# PROPELER (L) - koristi se modificirani desni propeler
+		DEF PropelerL Transform {
+			children [
+			Transform {
+				translation 0.0 0.0 -2.0
+				children [ USE PropelerD ]
+			}
+		]
+		}
+		
+		# PROPELER NA REPU - koristi se modificirani desni propeler
+		DEF PropelerR Transform {
+			children [
+			Transform {
+				translation -1.5 0.65 -1.0
+				children [ USE PropelerD ]
+			}
+		]
+		}
+		
+		#INICIJALI
+		Transform {
+			translation -0.4 0.0 1.6
+			rotation 0.0 1.0 0.0 1.57
+			scale 0.75 0.75 0.75
+			children [
+				Shape {
+					appearance Appearance {
+						material Material {diffuseColor 0.0 1.0 0.0}
+					}
+					geometry Text {
+						string [ "E. P." ]
+					}
+				}
+			]
+		}
+	
+	]
+
+}
