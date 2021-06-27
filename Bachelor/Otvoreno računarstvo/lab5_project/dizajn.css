@@ -1,0 +1,195 @@
+body{
+	background-color: white;
+	background-image: linear-gradient(white,#737373);
+	font-family:"Century Gothic";
+	margin:0;
+}
+
+header{
+	text-align:center;
+	color:#DABB2F;
+	border-bottom:groove thick;
+	letter-spacing:0.125em;
+	text-shadow:0.125em 0.125em 0.313em #E8D47D;
+	font-variant: small-caps;
+	font-size: 150%;
+}
+.kipic{
+	height:4.75em;			/*  1 em = current font size   --> u browseru=16px */
+	vertical-align:middle;
+	position:absolute;
+	top:0;
+	}
+.lijevi{
+	left:14em;
+}
+.desni{
+	right:14em;
+}
+footer{
+	text-align:center;
+	background-color:#333333;
+	background-image: linear-gradient(#333333,black);
+	color:#DABB2F;
+	
+}
+.sastrane{
+  background-color: black;
+  position:relative;
+  display: block;
+  float:left;
+  text-align: center;
+  height:100%;
+  width:17.5em;
+  max-width:17.5em;
+}
+
+nav ul{
+  /*background-color: black;*/
+  width:17.5em;
+  list-style-type: none;
+  margin: 0px auto;
+  padding: 0;
+  float:left;
+  text-align: center;
+  
+}
+nav li a {
+  font-size: 20px;
+  display:block;
+}
+a.navlink:link, a.navlink:visited {
+  background-color: #333333;
+  background-image: linear-gradient(#333333,black);
+  color: #DABB2F;
+  padding: 1em 1em;
+  text-decoration: none;
+}
+a.navlink:hover, a.navlink:active {
+	background-color:#DABB2F;
+	background-image:linear-gradient(#DABB2F,#98811B);
+	color: black;
+}
+
+#detalji {
+  /*position:relative;*/
+  color:black;
+  background-color: #e0c652;
+  font-size: 18px;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  display: block;
+  border:3px ridge #DABB2F;
+}
+#detalji p{
+	text-align: center;
+}
+
+/*sadrzaj stranice - od tu*/
+section{
+	overflow:auto;
+	padding:20px;
+	margin-left:16em;
+}
+h2{
+	letter-spacing:0.0625em;
+	text-shadow:0.125em 0.125em 0.313em #E8D47D;
+}
+
+/*pocetna str*/
+#klapa{
+	height:9.5em;
+	float:right;
+	opacity:0.9;
+	margin-right:10%;
+}
+#superlativi{
+	border-collapse:collapse;
+	width:45%;
+	margin-left:10%; 			
+    text-align:center;
+}
+#superlativi th {
+  height:2em;
+  border-bottom: 0.15em solid black;
+}
+#superlativi td {
+	height:1.5em;
+	border-bottom: 0.1em solid black;
+	background-color:#d9d9d9;
+}
+
+/*trazilica*/
+.blank_row{
+    height: 2em; 
+}
+.podnaslov{
+	border-bottom:0.15em solid black;
+	text-align:center;
+}
+#formular{
+	margin-left:5em;
+	text-align:left;
+	width:50%;
+	line-height:1.75em;
+}
+#formular th{
+	vertical-align:top;
+}
+#submit{
+	text-align:right;
+}
+input[type=text]:focus {
+  background-color: #F7F1D4;
+}
+
+/*tablica redatelja*/
+#usredini{
+	margin-left:4em;
+}
+#usredini td{
+	background-color:#d9d9d9;
+}
+
+.podaci{
+	/*width:100%;*/
+	border-collapse:collapse;
+	line-height:1.3em;
+}
+.podaci th{
+	text-align:center;
+	border: 0.1em solid black;
+	background-color: #e0c652;
+}
+.podaci td{
+	text-align:center;
+	border: 0.1em solid #666666;
+	/*white-space: nowrap;*/
+}
+
+
+#kvacica{
+	height:1em;
+}
+
+.slika_redatelja{
+	height:5em;
+}
+#rezultati{
+	margin-left:0;
+}
+
+/*pretraga php*/
+#povecalo{
+	height:3.5em;
+}
+
+#mapid{
+	height: 25em;
+	width:55em;
+	float:center;
+}
+
+
+

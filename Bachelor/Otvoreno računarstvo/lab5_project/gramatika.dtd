@@ -1,0 +1,25 @@
+<!ELEMENT redatelji (osoba)*>
+
+<!ELEMENT osoba (ime,prezime,wiki,godinar,mjestorod,drzavarod,nagrade,nominacije,film+)>
+<!ELEMENT ime (#PCDATA)>
+<!ELEMENT prezime (#PCDATA)>
+<!ELEMENT wiki (#PCDATA)>
+<!ELEMENT godinar (#PCDATA)>
+<!ELEMENT mjestorod (#PCDATA)>
+<!ELEMENT wikimjesto (#PCDATA)>
+<!ELEMENT drzavarod (#PCDATA)>
+<!ELEMENT nagrade (#PCDATA)>
+<!ELEMENT nominacije (#PCDATA)>	
+
+<!ELEMENT film (naslov,jezik+,godinaf,zanr+,najbolji?)>
+<!ELEMENT naslov (hrnaslov, engnaslov, izvnaslov?)>
+<!ELEMENT hrnaslov (#PCDATA)>
+<!ELEMENT engnaslov (#PCDATA)>
+<!ELEMENT izvnaslov (#PCDATA)>
+<!ELEMENT jezik (#PCDATA)>
+<!ELEMENT godinaf (#PCDATA)>
+<!ELEMENT zanr (#PCDATA)>
+<!ELEMENT najbolji EMPTY>
+
+<!ATTLIST osoba id ID #REQUIRED>
+<!ATTLIST drzavarod govpodrucje (englesko|drugo) #REQUIRED>
