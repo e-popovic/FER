@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE redatelji SYSTEM "gramatika.dtd">
+<?xml-stylesheet type="text/xsl"
+href="pretvorba.xsl"?>
+
+<redatelji>		
+	<osoba id="1">
+		<ime>Steven</ime>
+		<prezime>Soderbergh</prezime>
+		<wiki>Steven_Soderbergh</wiki>
+		<godinar>1963</godinar>
+		<mjestorod>Atlanta</mjestorod>
+		<wikimjesto>Atlanta</wikimjesto>
+		<drzavarod govpodrucje="englesko">SAD</drzavarod>
+		<nagrade>1</nagrade>
+		<nominacije>1-10</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Traffic</hrnaslov>
+				<engnaslov>Traffic</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2000</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>kriminalistički</zanr>
+		</film>
+	</osoba>
+	
+	<osoba id="2">
+		<ime>Ron</ime>
+		<prezime>Howard</prezime>
+		<wiki>Ron_Howard</wiki>
+		<godinar>1954</godinar>
+		<mjestorod>Duncan</mjestorod>
+		<wikimjesto>Duncan,_Oklahoma</wikimjesto>
+		<drzavarod govpodrucje="englesko">SAD</drzavarod>
+		<nagrade>&gt;5</nagrade>
+		<nominacije>&gt;30</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Genijalni um</hrnaslov>
+				<engnaslov>A Beautiful Mind</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2001</godinaf>
+			<zanr>biografski</zanr>
+			<zanr>dramski</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<osoba id="3">
+		<ime>Roman</ime>
+		<prezime>Polanski</prezime>
+		<wiki>Roman_Polanski</wiki>
+		<godinar>1933</godinar>
+		<mjestorod>Pariz</mjestorod>
+		<wikimjesto>Paris</wikimjesto>
+		<drzavarod govpodrucje="drugo">Francuska</drzavarod>
+		<nagrade>&gt;5</nagrade>
+		<nominacije>11-30</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Pijanist</hrnaslov>
+				<engnaslov>The Pianist</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<jezik>njemački</jezik>
+			<godinaf>2002</godinaf>
+			<zanr>biografski</zanr>
+			<zanr>dramski</zanr>
+			<zanr>ratni</zanr>
+		</film>
+	</osoba>
+	
+	<osoba id="4">
+		<ime>Peter</ime>
+		<prezime>Jackson</prezime>
+		<wiki>Peter_Jackson</wiki>
+		<godinar>1961</godinar>
+		<mjestorod>Wellington</mjestorod>
+		<wikimjesto>Wellington</wikimjesto>
+		<drzavarod govpodrucje="englesko">Novi Zeland</drzavarod>
+		<nagrade>2-5</nagrade>
+		<nominacije>1-10</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Gospodar prstenova: Povratak kralja</hrnaslov>
+				<engnaslov>The Lord of the Rings: The Return of the King</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2003</godinaf>
+			<zanr>fantastični</zanr>
+			<zanr>pustolovni</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<osoba id="5">
+		<ime>Clint</ime>
+		<prezime>Eastwood</prezime>
+		<wiki>Clint_Eastwood</wiki>
+		<godinar>1930</godinar>
+		<mjestorod>San Francisco</mjestorod>
+		<wikimjesto>San_Francisco</wikimjesto>
+		<drzavarod govpodrucje="englesko">SAD</drzavarod>
+		<nagrade>&gt;5</nagrade>
+		<nominacije>&gt;30</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Djevojka od milijun dolara</hrnaslov>
+				<engnaslov>Million Dollar Baby</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2004</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>sportski</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<osoba id="6">
+		<ime>Ang</ime>
+		<prezime>Lee</prezime>
+		<wiki>Ang_Lee</wiki>
+		<godinar>1954</godinar>
+		<mjestorod>Chaozhou</mjestorod>
+		<wikimjesto>Chaozhou,_Pingtung</wikimjesto>
+		<drzavarod govpodrucje="drugo">Republika Kina</drzavarod>
+		<nagrade>&gt;5</nagrade>
+		<nominacije>&gt;30</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Planina Brokeback</hrnaslov>
+				<engnaslov>Brokeback Mountain</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2005</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>ljubavni</zanr>
+		</film>
+		<film>
+			<naslov>
+				<hrnaslov>Pijev život</hrnaslov>
+				<engnaslov>Life of Pi</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<jezik>francuski</jezik>
+			<jezik>tamilski</jezik>
+			<godinaf>2012</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>pustolovni</zanr>
+		</film>
+	</osoba>
+	
+	<osoba id="7">
+		<ime>Martin</ime>
+		<prezime>Scorsese</prezime>
+		<wiki>Martin_Scorsese</wiki>
+		<godinar>1942</godinar>
+		<mjestorod>New York</mjestorod>
+		<wikimjesto>New_York_City</wikimjesto>
+		<drzavarod govpodrucje="englesko">SAD</drzavarod>
+		<nagrade>&gt;5</nagrade>
+		<nominacije>&gt;30</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Pokojni</hrnaslov>
+				<engnaslov>The Departed</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2006</godinaf>
+			<zanr>kriminalistički</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<!-- Napomena: braća Joel i Ethan Coen imaju zajedničku Wiki stranicu
+	i Oscar im je bio zajednički pa imaju jedan unos koji predstavlja obojicu,
+	s imenom i godinom rođenja starijeg brata-->
+	
+	<osoba id="8">
+		<ime>Joel</ime>
+		<prezime>Coen</prezime>
+		<wiki>Coen_brothers</wiki>
+		<godinar>1954</godinar>
+		<mjestorod>St. Louis Park</mjestorod>
+		<wikimjesto>St._Louis_Park,_Minnesota</wikimjesto>
+		<drzavarod govpodrucje="englesko">SAD</drzavarod>
+		<nagrade>&gt;5</nagrade>
+		<nominacije>&gt;30</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Nema zemlje za starce</hrnaslov>
+				<engnaslov>No Country for Old Men</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2007</godinaf>
+			<zanr>kriminalistički</zanr>
+			<zanr>triler</zanr>
+			<zanr>vestern</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<osoba id="9">
+		<ime>Danny</ime>
+		<prezime>Boyle</prezime>
+		<wiki>Danny_Boyle</wiki>
+		<godinar>1956</godinar>
+		<mjestorod>Radcliffe</mjestorod>
+		<wikimjesto>Radcliffe,_Greater_Manchester</wikimjesto>
+		<drzavarod govpodrucje="englesko">UK</drzavarod>
+		<nagrade>&gt;5</nagrade>
+		<nominacije>11-30</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Milijunaš s ulice</hrnaslov>
+				<engnaslov>Slumdog Millionaire</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2008</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>kriminalistički</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<osoba id="10">
+		<ime>Kathryn</ime>
+		<prezime>Bigelow</prezime>
+		<wiki>Kathryn_Bigelow</wiki>
+		<godinar>1951</godinar>
+		<mjestorod>San Carlos</mjestorod>
+		<wikimjesto>San_Carlos,_California</wikimjesto>
+		<drzavarod govpodrucje="englesko">SAD</drzavarod>
+		<nagrade>2-5</nagrade>
+		<nominacije>1-10</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Narednik James</hrnaslov>
+				<engnaslov>The Hurt Locker</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2009</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>ratni</zanr>
+			<zanr>triler</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<osoba id="11">
+		<ime>Tom</ime>
+		<prezime>Hooper</prezime>
+		<wiki>Tom_Hooper</wiki>
+		<godinar>1972</godinar>
+		<mjestorod>London</mjestorod>
+		<wikimjesto>London</wikimjesto>
+		<drzavarod govpodrucje="englesko">UK</drzavarod>
+		<nagrade>1</nagrade>
+		<nominacije>1-10</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Kraljev govor</hrnaslov>
+				<engnaslov>The King's Speech</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2010</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>povjesni</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<osoba id="12">
+		<ime>Michel</ime>
+		<prezime>Hazanavicius</prezime>
+		<wiki>Michel_Hazanavicius</wiki>
+		<godinar>1967</godinar>
+		<mjestorod>Pariz</mjestorod>
+		<wikimjesto>Paris</wikimjesto>
+		<drzavarod govpodrucje="drugo">Francuska</drzavarod>
+		<nagrade>1</nagrade>
+		<nominacije>1-10</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Umjetnik</hrnaslov>
+				<engnaslov>The Artist</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2011</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>komedija</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<osoba id="13">
+		<ime>Alfonso</ime>
+		<prezime>Cuaron</prezime>
+		<wiki>Alfonso_Cuar%C3%B3n</wiki>
+		<godinar>1961</godinar>
+		<mjestorod>Ciudad de Mexico</mjestorod>
+		<wikimjesto>Mexico_City</wikimjesto>
+		<drzavarod govpodrucje="drugo">Meksiko</drzavarod>
+		<nagrade>2-5</nagrade>
+		<nominacije>11-30</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Gravitacija</hrnaslov>
+				<engnaslov>Gravity</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2013</godinaf>
+			<zanr>triler</zanr>
+			<zanr>znanstveno-fantastični</zanr>
+		</film>
+		<film>
+			<naslov>
+				<hrnaslov>Roma</hrnaslov>
+				<engnaslov>Roma</engnaslov>
+				<izvnaslov>Roma</izvnaslov>
+			</naslov>
+			<jezik>španjolski</jezik>
+			<jezik>mikstečki</jezik>
+			<godinaf>2018</godinaf>
+			<zanr>dramski</zanr>
+		</film>
+	</osoba>
+	
+	<osoba id="14">
+		<ime>Alejandro</ime>
+		<prezime>Gonzalez Inarritu</prezime>
+		<wiki>Alejandro_Gonz%C3%A1lez_I%C3%B1%C3%A1rritu</wiki>
+		<godinar>1963</godinar>
+		<mjestorod>Ciudad de Mexico</mjestorod>
+		<wikimjesto>Mexico_City</wikimjesto>
+		<drzavarod govpodrucje="drugo">Meksiko</drzavarod>
+		<nagrade>2-5</nagrade>
+		<nominacije>1-10</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Birdman</hrnaslov>
+				<engnaslov>Birdman or (the Unexpected Virtue of Ignorance) </engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2014</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>komedija</zanr>
+			<najbolji></najbolji>
+		</film>
+		<film>
+			<naslov>
+				<hrnaslov>Povratnik</hrnaslov>
+				<engnaslov>The Revenant</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2015</godinaf>
+			<zanr>dramski</zanr>
+			<zanr>pustolovni</zanr>
+		</film>
+	</osoba>
+	
+	<osoba id="15">
+		<ime>Damien</ime>
+		<prezime>Chazelle</prezime>
+		<wiki>Damien_Chazelle</wiki>
+		<godinar>1985</godinar>
+		<mjestorod>Providence</mjestorod>
+		<wikimjesto>Providence,_Rhode_Island</wikimjesto>
+		<drzavarod govpodrucje="englesko">SAD</drzavarod>
+		<nagrade>1</nagrade>
+		<nominacije>1-10</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>La La Land</hrnaslov>
+				<engnaslov>La La Land</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<godinaf>2016</godinaf>
+			<zanr>ljubavni</zanr>
+			<zanr>mjuzikl</zanr>
+		</film>
+	</osoba>
+	
+	<osoba id="16">
+		<ime>Guillermo</ime>
+		<prezime>del Toro</prezime>
+		<wiki>Guillermo_del_Toro</wiki>
+		<godinar>1964</godinar>
+		<mjestorod>Guadalajara</mjestorod>
+		<wikimjesto>Guadalajara</wikimjesto>
+		<drzavarod govpodrucje="drugo">Meksiko</drzavarod>
+		<nagrade>2-5</nagrade>
+		<nominacije>1-10</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Oblik vode</hrnaslov>
+				<engnaslov>The Shape of Water</engnaslov>
+			</naslov>
+			<jezik>engleski</jezik>
+			<jezik>ruski</jezik>
+			<jezik>znakovni</jezik>
+			<godinaf>2017</godinaf>
+			<zanr>fantastični</zanr>
+			<zanr>ljubavni</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+	<osoba id="17">
+		<ime>Joon-ho</ime>
+		<prezime>Bong</prezime>
+		<wiki>Bong_Joon-ho</wiki>
+		<godinar>1969</godinar>
+		<mjestorod>Daegu</mjestorod>
+		<wikimjesto>Daegu</wikimjesto>
+		<drzavarod govpodrucje="drugo">Južna Koreja</drzavarod>
+		<nagrade>2-5</nagrade>
+		<nominacije>1-10</nominacije>
+		<film>
+			<naslov>
+				<hrnaslov>Parazit</hrnaslov>
+				<engnaslov>Parasite</engnaslov>
+				<izvnaslov>Gisaengchung</izvnaslov>
+			</naslov>
+			<jezik>korejski</jezik>
+			<godinaf>2019</godinaf>
+			<zanr>komedija</zanr>
+			<zanr>triler</zanr>
+			<najbolji></najbolji>
+		</film>
+	</osoba>
+	
+</redatelji>

@@ -1,0 +1,135 @@
+<form> <!-- ACTION=???????? -->
+    <h3>&emsp; Osoba</h3>
+	<div class=dio_form>
+	<label for="ime">Ime: </label>
+	<input type="text" id="ime" name="ime" placeholder="Peter"/><br/>
+	
+	<label for="prezime">Prezime: </label>
+	<input type="text" id="prezime" name="prezime" placeholder="Jackson"/><br/>
+	
+	<label for="godina_rod">Godina rođenja: </label>
+	<select id="godina_rod" name="godina_rod">
+	  <option value="1985">1985</option>
+	  <option value="1972">1972</option>
+	  <option value="1969">1969</option>
+	  <option value="1967">1967</option>
+	  <option value="1964">1964</option>
+	  <option value="1963">1963</option>
+	  <option value="1961">1961</option>
+	  <option value="1956">1956</option>
+	  <option value="1954">1954</option>
+	  <option value="1951">1951</option>
+	  <option value="1942">1942</option>
+	  <option value="1933">1933</option>
+	  <option value="1930">1930</option>
+	</select><br/>
+	
+	<label for="mjesto_rod">Mjesto rođenja: </label>
+	<input type="text" id="mjesto_rod" name="mjesto_rod" placeholder="Wellington"/><br/>
+	
+	<label for="država_rod">Država rođenja: </label>
+	<input type="text" id="država_rod" name="država_rod" placeholder="Novi Zeland"/>
+	
+	<p>Dolazi iz: </p>
+	<input type="radio" id="eng_područje" name="područje" value="eng_područje"/>
+	<label for="eng_područje">engleskog govornog područja</label><br/>
+	<input type="radio" id="drugo_područje" name="područje" value="drugo_područje"/>
+	<label for="drugo_područje">ne-engleskog govornog područja</label><br/><br/>
+	
+    <label for="br_pobjeda">Broj osvojenih Oscara: </label>
+	<input type="text" id="br_pobjeda" name="br_pobjeda" placeholder="3"/><br/>	
+	
+	<!--kako spojim checkbox sa br nominacija labelom???-->
+	<label for="br_nominacija">Broj nominacija za Oscar: </label>
+	<input type="text" id="br_nominacija" name="br_nominacija" placeholder="6"/><br/>
+	<label for="vise_pobjeda" id="uvlaka">Ima li nominacija? </label>
+	<input type="checkbox" id="vise_pobjeda" name="vise_pobjeda" value="vise_pobjeda"/><br/>
+	
+	<label for="web_str">Web stranica: </label>
+	<input type="text" id="web_str" name="web_str" placeholder="wikipedia.org/wiki/Peter_Jackson"/><br/>
+	</div>
+	
+	<h3>&emsp; Film</h3>
+	<div class=dio_form>
+	<label for="naslov">Naslov: </label>
+	<input type="text" id="naslov" name="naslov" placeholder="Gospodar prstenova"/><br/>
+	
+	<label for="naslov_orig">Naslov na izvornom jeziku: </label>
+	<input type="text" id="naslov_orig" name="naslov_orig" placeholder="Lord of the Rings"/><br/>
+	
+	<label for="jezik">Jezik: </label>
+	<select id="jezik" name="jezik" multiple>
+	  <option value="engleski">engleski</option>
+      <option value="francuski">francuski</option>
+      <option value="korejski">korejski</option>
+      <option value="mikstečki">mikstečki</option>
+      <option value="njemački">njemački</option>
+      <option value="ruski">ruski</option>
+      <option value="španjolski">španjolski</option>
+      <option value="tamilski">tamilski</option>
+      <option value="znakovni">znakovni</option>
+	</select><br/>
+	
+	<label for="godina_film">Godina: </label>
+	<select id="godina_film" name="godina_film">
+	  <option value="2020">2020</option>
+	  <option value="2019">2019</option>
+	  <option value="2018">2018</option>
+	  <option value="2017">2017</option>
+	  <option value="2016">2016</option>
+	  <option value="2015">2015</option>
+	  <option value="2014">2014</option>
+	  <option value="2013">2013</option>
+	  <option value="2012">2012</option>
+	  <option value="2011">2011</option>
+	  <option value="2010">2010</option>
+	  <option value="2009">2009</option>
+	  <option value="2008">2008</option>
+	  <option value="2007">2007</option>
+	  <option value="2006">2006</option>
+	  <option value="2005">2005</option>
+	  <option value="2004">2004</option>
+	  <option value="2003">2003</option>
+	  <option value="2002">2002</option>
+	  <option value="2001">2001</option>
+	  <option value="2000">2000</option>
+	</select><br/>
+	
+	<p>Žanr: </p>   <!--jel ok tak-->
+	<input type="checkbox" id="biografski" name="žanr" value="biografski"/>
+	<label for="biografski">biografski</label><br/>
+    <input type="checkbox" id="dramski" name="žanr" value="dramski"/>
+	<label for="dramski">dramski</label><br/>
+    <input type="checkbox" id="fantastični" name="žanr" value="fantastični"/>
+	<label for="fantastični">fantastični</label><br/>
+    <input type="checkbox" id="komedija" name="žanr" value=""komedija/>
+	<label for="komedija">komedija</label><br/>
+    <input type="checkbox" id="kriminalistički" name="žanr" value="kriminalistički"/>
+	<label for="kriminalistički">kriminalistički</label><br/>
+    <input type="checkbox" id="ljubavni" name="žanr" value="ljubavni"/>
+	<label for="ljubavni">ljubavni</label><br/>
+    <input type="checkbox" id="mjuzikl" name="žanr" value="mjuzikl"/>
+	<label for="mjuzikl">mjuzikl</label><br/>
+    <input type="checkbox" id="povjesni" name="žanr" value="povjesni"/>
+	<label for="povjesni">povjesni</label><br/>
+    <input type="checkbox" id="pustolovni" name="žanr" value="pustolovni"/>
+	<label for="pustolovni">pustolovni</label><br/>
+    <input type="checkbox" id="ratni" name="žanr" value="ratni"/>
+	<label for="ratni">ratni</label><br/>
+    <input type="checkbox" id="sportski" name="žanr" value="sportski"/>
+	<label for="sportski">sportski</label><br/>
+    <input type="checkbox" id="triler" name="žanr" value="triler"/>
+	<label for="triler">triler</label><br/>
+    <input type="checkbox" id="vestern" name="žanr" value="vestern"/>
+	<label for="vestern">vestern</label><br/>
+    <input type="checkbox" id="znanstveno-fantastični" name="žanr" value="znanstveno-fantastični"/>
+	<label for="znanstveno-fantastični">znanstveno-fantastični</label><br/>
+	
+	<label for="najbolji" class="razmak_redova">Osvojen Oscar za najbolji film: </label>
+	<input type="checkbox" id="najbolji" name="najbolji" value="najbolji"/><br/>
+	
+	
+	<input type="submit" value="Submit"/>
+    <input type="reset" value="Reset"/>
+	</div>
+  </form>

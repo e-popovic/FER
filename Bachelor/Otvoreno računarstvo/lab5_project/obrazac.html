@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <title> Tražilica redatelja</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="dizajn.css"/>
+  <link rel="icon" href="slike/oscar_kipic_prozirni.png"/>
+</head>
+<body>
+
+  <header>
+  <a href="index.html">
+    <img  src="slike/oscar_kipic_prozirni.png" alt="nagrada Oscar" id="kipicL" class="kipic lijevi"/>  
+	<img  src="slike/oscar_kipic_prozirni.png" alt="nagrada Oscar" id="kipicD" class="kipic desni" />
+  </a>
+  <h1>Oskarom nagrađeni redatelji</h1>
+  </header>
+
+	<div class="sastrane">
+	<nav>
+    <ul>
+    <li><a href="index.html" class="navlink">Početna stranica</a></li>
+	<li><a href="podaci.xml" class="navlink">Tablica</a></li>
+	<li><a href="obrazac.html" class="navlink">Tražilica</a></li>
+	<li><a href="https://oscar.go.com/" class="navlink">Službeni web Oscara</a></li>
+	<li><a href="http://www.fer.unizg.hr/predmet/or" class="navlink">Otvoreno računarstvo</a></li>
+	<li><a href="http://www.fer.unizg.hr" target="_blank" class="navlink">FER</a></li>
+	<li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="navlink">O nama</a></li>
+	<li><a href="mailto:ep50608@fer.hr" class="navlink">Kontakt</a></li>
+	</ul>
+	</nav>
+	</div>
+	
+  <section>
+  <h2>Obrazac za pretraživanje</h2>
+  <form action="pretraga.php">								
+  <table id="formular">
+	<tr>
+		<th class="podnaslov" colspan="2">Osoba</th>
+	</tr>
+	<tr>
+		<th><label for="ime">Ime: </label></th>
+		<td><input type="text" id="ime" name="ime" placeholder="Peter"/></td>
+	</tr>
+	<tr>
+		<th><label for="prezime">Prezime: </label></th>
+		<td><input type="text" id="prezime" name="prezime" placeholder="Jackson"/></td>
+	</tr>
+	<tr>
+		<th><label for="godinar">Godina rođenja: </label></th>
+		<td><select id="godinar" name="godinar">
+	  <option selected="selected" value="odaberi">odaberi</option>
+	  <option value="1985">1985</option>
+	  <option value="1972">1972</option>
+	  <option value="1969">1969</option>
+	  <option value="1967">1967</option>
+	  <option value="1964">1964</option>
+	  <option value="1963">1963</option>
+	  <option  value="1961">1961</option>
+	  <option value="1956">1956</option>
+	  <option value="1954">1954</option>
+	  <option value="1951">1951</option>
+	  <option value="1942">1942</option>
+	  <option value="1933">1933</option>
+	  <option value="1930">1930</option>
+	</select></td>
+	</tr>
+	<tr>
+		<th>Dolazi iz:</th>
+		<td><input type="radio" id="englesko" name="govpodrucje" value="englesko"/>
+		<label for="englesko">engleskog govornog područja</label><br/>
+		<input type="radio" id="drugo" name="govpodrucje" value="drugo"/>
+		<label for="drugo">ne-engleskog govornog područja</label></td>
+	</tr>
+	<tr>
+		<th><label for="mjestorod">Mjesto rođenja: </label></th>
+		<td><input type="text" id="mjestorod" name="mjestorod" placeholder="Wellington"/></td>
+	</tr>
+	<tr>
+		<th><label for="drzavarod">Država rođenja: </label></th>
+		<td><input type="text" id="drzavarod" name="drzavarod" placeholder="Novi Zeland"/></td>
+	</tr>
+	<tr>
+		<th>Broj osvojenih Oscara:</th>
+		<td><input type="radio" id="1" name="nagrade" value="1"/>
+		<label for="1">1</label><br/>
+		<input type="radio" id="2-5" name="nagrade" value="2-5"/>
+		<label for="2-5">2-5</label><br/>
+		<input type="radio" id="&gt;5" name="nagrade" value="&gt;5"/>
+		<label for="&gt;5">&gt;5</label></td>
+	</tr>
+	<tr>
+		<th>Broj nominacija za Oscar:</th>
+		<td><input type="radio" id="1-10" name="nominacije" value="1-10"/>
+		<label for="1-10">1-10</label><br/>
+		<input type="radio" id="11-30" name="nominacije" value="11-30"/>
+		<label for="11-30">11-30</label><br/>
+		<input type="radio" id="&gt;30" name="nominacije" value="&gt;30"/>
+		<label for="&gt;30">&gt;30</label></td>
+	</tr>
+	<tr>
+		<th><label for="wiki">Wiki stranica: </label></th>
+		<td><input type="text" id="wiki" name="wiki" placeholder="wikipedia.org/wiki/Peter_Jackson"/></td>
+	</tr>
+	<tr>
+		<th><label for="id">ID: </label></th>
+		<td><input type="text" id="id" name="id" placeholder="_4"/></td>
+	</tr>
+	<tr class="blank_row">
+		<td colspan="2"></td>
+	</tr>
+	<tr>
+		<th class="podnaslov" colspan="2">Film</th>
+	</tr>
+	<tr>
+		<th><label for="hrnaslov">Naslov: </label></th>
+		<td><input type="text" id="hrnaslov" name="hrnaslov" placeholder="Gospodar prstenova"/></td>
+	</tr>
+	<tr>
+		<th><label for="engnaslov">Naslov na engleskom jeziku: </label></th>
+		<td><input type="text" id="engnaslov" name="engnaslov" placeholder="Lord of the Rings"/></td>
+	</tr>
+	<tr>
+		<th><label for="izvnaslov">Naslov na izvornom jeziku: </label></th>
+		<td><input type="text" id="izvnaslov" name="izvnaslov" placeholder="Gisaengchung"/><br/>
+		<label for="nije_eng" >Film nije na engleskom </label>
+		<input type="checkbox" id="nije_eng" name="nije_eng" value="nije_eng"/></td>
+	</tr>
+	
+	
+	<tr>
+		<th><label for="godinaf">Godina: </label></th>
+		<td><select id="godinaf" name="godinaf">
+		<option selected="selected" value="odaberi">odaberi</option>
+	  <option value="2019">2019</option>
+	  <option value="2018">2018</option>
+	  <option value="2017">2017</option>
+	  <option value="2016">2016</option>
+	  <option value="2015">2015</option>
+	  <option value="2014">2014</option>
+	  <option value="2013">2013</option>
+	  <option value="2012">2012</option>
+	  <option value="2011">2011</option>
+	  <option value="2010">2010</option>
+	  <option value="2009">2009</option>
+	  <option value="2008">2008</option>
+	  <option value="2007">2007</option>
+	  <option value="2006">2006</option>
+	  <option value="2005">2005</option>
+	  <option value="2004">2004</option>
+	  <option value="2003">2003</option>
+	  <option value="2002">2002</option>
+	  <option value="2001">2001</option>
+	  <option value="2000">2000</option>
+	</select></td>
+	</tr>
+	<tr>
+		<th><label for="najbolji">Osvojen Oscar za najbolji film: </label></th>
+		<td><input type="checkbox" id="najbolji" name="najbolji" value="najbolji"/></td>
+	</tr>
+	<tr>
+		<th><label for="jezik">Jezik/jezici: </label></th>
+		<td><select id="jezik" name="jezik" multiple>
+	  <option value="engleski">engleski</option>
+      <option value="francuski">francuski</option>
+      <option value="korejski">korejski</option>
+      <option value="mikstečki">mikstečki</option>
+      <option value="njemački">njemački</option>
+      <option value="ruski">ruski</option>
+      <option value="španjolski">španjolski</option>
+      <option value="tamilski">tamilski</option>
+      <option value="znakovni">znakovni</option>
+	</select></td>
+	</tr>
+	<tr>
+		<th>Žanr:</th>
+		<td><input type="checkbox" id="biografski" name="zanr[]" value="biografski"/>
+	<label for="biografski">biografski</label><br/>
+    <input type="checkbox" id="dramski" name="zanr[]" value="dramski"/>
+	<label for="dramski">dramski</label><br/>
+    <input type="checkbox" id="fantastični" name="zanr[]" value="fantastični"/>
+	<label for="fantastični">fantastični</label><br/>
+    <input type="checkbox" id="komedija" name="zanr[]" value="komedija"/>
+	<label for="komedija">komedija</label><br/>
+    <input type="checkbox" id="kriminalistički" name="zanr[]" value="kriminalistički"/>
+	<label for="kriminalistički">kriminalistički</label><br/>
+    <input type="checkbox" id="ljubavni" name="zanr[]" value="ljubavni"/>
+	<label for="ljubavni">ljubavni</label><br/>
+    <input type="checkbox" id="mjuzikl" name="zanr[]" value="mjuzikl"/>
+	<label for="mjuzikl">mjuzikl</label><br/>
+    <input type="checkbox" id="povjesni" name="zanr[]" value="povjesni"/>
+	<label for="povjesni">povjesni</label><br/>
+    <input type="checkbox" id="pustolovni" name="zanr[]" value="pustolovni"/>
+	<label for="pustolovni">pustolovni</label><br/>
+    <input type="checkbox" id="ratni" name="zanr[]" value="ratni"/>
+	<label for="ratni">ratni</label><br/>
+    <input type="checkbox" id="sportski" name="zanr[]" value="sportski"/>
+	<label for="sportski">sportski</label><br/>
+    <input type="checkbox" id="triler" name="zanr[]" value="triler"/>
+	<label for="triler">triler</label><br/>
+    <input type="checkbox" id="vestern" name="zanr[]" value="vestern"/>
+	<label for="vestern">vestern</label><br/>
+    <input type="checkbox" id="znanstveno-fantastični" name="zanr[]" value="znanstveno-fantastični"/>
+	<label for="znanstveno-fantastični">znanstveno-fantastični</label></td>
+	</tr>
+	<tr class="blank_row">
+		<td colspan="2"></td>
+	</tr>
+	<tr>
+		<td id="submit"><input type="submit" value="Submit"/></td>
+		<td><input type="reset" value="Reset"/></td>
+	</tr>
+  </table>
+  </form>
+  </section>
+
+<footer>
+  <p>Autor: Ema Popović<br/>
+  Fakultet elektrotehnike i računarstva, Zagreb<br/>
+  Zadnja izmjena: 2020-04-25</p>
+</footer>
+
+</body>
+</html>
