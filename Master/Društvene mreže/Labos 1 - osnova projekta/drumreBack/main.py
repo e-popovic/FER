@@ -20,8 +20,8 @@ CORS(app)
 
 app.secret_key = "supersekrit"
 blueprint = make_twitter_blueprint(
-    api_key="sousC0zylzkkhGwae9TRbroAq",
-    api_secret="MXOLyvTaLca541dj9b2jsYt8YwXVawtuaVCIrF2e93BnmTFJTe",
+    api_key="API-KEY",
+    api_secret="API-SECRET",
 )
 app.register_blueprint(blueprint, url_prefix="/login")
 
@@ -38,7 +38,7 @@ isAuthorised = False
 myId = ''
 
 # TMDB - pronadi popularne filmove
-url_popular = "https://api.themoviedb.org/3/movie/popular?api_key=9d8b2e460dbec147195c50b31bf64246&language=en-US&page=1"
+url_popular = "https://api.themoviedb.org/3/movie/popular?api_key=APIKEY&language=en-US&page=1"
 data_movies = json.loads(urlopen(url_popular).read())['results']
 
 db_movies = client.movies
@@ -53,13 +53,13 @@ for movie in data_movies:
     if collection_popular.count_documents({'id': movie['id']}) == 0:
         collection_popular.insert_one(movie)
         url_id = "https://api.themoviedb.org/3/movie/" + str(
-            movie['id']) + "/external_ids?api_key=9d8b2e460dbec147195c50b31bf64246"
+            movie['id']) + "/external_ids?api_key=APIKEY"
         movie_ids = json.loads(urlopen(url_id).read())  # ima i fb, twitter, instagram
         collection_popular.update_one({'id': movie['id']}, {"$set": {'imdb_id': movie_ids['imdb_id']}})
 
         # OMDB - pronadi detalje svakog filma
         if collection_all.count_documents({'imdbID': movie_ids["imdb_id"]}) == 0:
-            details_id = "http://www.omdbapi.com/?apikey=159e0580&i=" + movie_ids["imdb_id"]
+            details_id = "http://www.omdbapi.com/?apikey=APIKEY&i=" + movie_ids["imdb_id"]
             movie_details = json.loads(urlopen(details_id).read())
             collection_all.insert_one(movie_details)
 
