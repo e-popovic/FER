@@ -16,10 +16,10 @@ rm(list=ls())
 getwd()
 setwd("~/R_analysis/DRUME_Twitter")
 
-setup_twitter_oauth(consumer_key = '9wJaNkhuK708ucMpnN3NQ0Ozy',
-                    consumer_secret = 'dohjmvP49WY8XOZvbLpbJMlJO9GQzbIl0tB5r79ezbvqTRTpSN',
-                    access_token ='1458756668687364097-znlbjulD7nK4FbTj7qd3PFKEfumXEc',
-                    access_secret ='7p4pDdM34wCQgeaSyTUHou5L01W6SODu5EjW0zJJICdz7')
+setup_twitter_oauth(consumer_key = 'apikey',
+                    consumer_secret = 'apisecret',
+                    access_token ='accestoken',
+                    access_secret ='accesssecret')
 
 
 user <- getUser("@AP")
