@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/projekt01/pwm01_tb_isim_beh.exe" -prj "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/projekt01/pwm01_tb_beh.prj" "work.pwm01_tb" 

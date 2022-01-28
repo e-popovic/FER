@@ -1,0 +1,438 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Reading design: led01.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "led01.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "led01"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : led01
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/encoder01.vhd" in Library work.
+Entity <encoder01> compiled.
+Entity <encoder01> (Architecture <RTL>) compiled.
+Compiling vhdl file "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/projekt02/led01.vhd" in Library work.
+Entity <led01> compiled.
+Entity <led01> (Architecture <RTL>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <led01> in library <work> (architecture <RTL>).
+
+Analyzing hierarchy for entity <encoder01> in library <work> (architecture <RTL>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <led01> in library <work> (Architecture <RTL>).
+Entity <led01> analyzed. Unit <led01> generated.
+
+Analyzing Entity <encoder01> in library <work> (Architecture <RTL>).
+INFO:Xst:1561 - "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/encoder01.vhd" line 58: Mux is complete : default of case is discarded
+Entity <encoder01> analyzed. Unit <encoder01> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <encoder01>.
+    Related source file is "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/encoder01.vhd".
+    Found 1-bit register for signal <a_reg>.
+    Found 1-bit register for signal <b_reg>.
+    Found 1-bit register for signal <rotary_direction_local>.
+    Found 1-bit register for signal <rotary_event_local>.
+    Found 1-bit register for signal <rotary_q1>.
+    Found 1-bit 4-to-1 multiplexer for signal <rotary_q1$mux0002> created at line 50.
+    Found 1-bit register for signal <rotary_q1_delay>.
+    Found 1-bit register for signal <rotary_q2>.
+    Found 1-bit 4-to-1 multiplexer for signal <rotary_q2$mux0002> created at line 50.
+    Summary:
+	inferred   7 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <encoder01> synthesized.
+
+
+Synthesizing Unit <led01>.
+    Related source file is "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/projekt02/led01.vhd".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <trenutno> of Case statement line 202 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <trenutno> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <trenutno>.
+    Found 26-bit up counter for signal <brojac>.
+    Found 26-bit up accumulator for signal <brojac2>.
+    Found 1-bit register for signal <nr>.
+    Found 8-bit register for signal <pomak>.
+    Found 1-bit register for signal <Q1>.
+    Found 1-bit register for signal <Q2>.
+    Found 1-bit register for signal <resets>.
+    Found 6-bit register for signal <trenutno>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 Accumulator(s).
+	inferred  18 D-type flip-flop(s).
+Unit <led01> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 26-bit up counter                                     : 1
+# Accumulators                                         : 1
+ 26-bit up accumulator                                 : 1
+# Registers                                            : 13
+ 1-bit register                                        : 11
+ 6-bit register                                        : 1
+ 8-bit register                                        : 1
+# Multiplexers                                         : 2
+ 1-bit 4-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 26-bit up counter                                     : 1
+# Accumulators                                         : 1
+ 26-bit up accumulator                                 : 1
+# Registers                                            : 25
+ Flip-Flops                                            : 25
+# Multiplexers                                         : 2
+ 1-bit 4-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <led01> ...
+
+Optimizing unit <encoder01> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block led01, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 77
+ Flip-Flops                                            : 77
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : led01.ngr
+Top Level Output File Name         : led01
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 11
+
+Cell Usage :
+# BELS                             : 179
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 43
+#      LUT2                        : 17
+#      LUT3                        : 10
+#      LUT4                        : 1
+#      MUXCY                       : 50
+#      VCC                         : 1
+#      XORCY                       : 52
+# FlipFlops/Latches                : 77
+#      FDR                         : 62
+#      FDRE                        : 13
+#      FDSE                        : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 10
+#      IBUF                        : 4
+#      OBUF                        : 6
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                       40  out of   4656     0%  
+ Number of Slice Flip Flops:             77  out of   9312     0%  
+ Number of 4 input LUTs:                 75  out of   9312     0%  
+ Number of IOs:                          11
+ Number of bonded IOBs:                  11  out of    232     4%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 77    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 4.253ns (Maximum Frequency: 235.109MHz)
+   Minimum input arrival time before clock: 3.749ns
+   Maximum output required time after clock: 5.259ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.253ns (frequency: 235.109MHz)
+  Total number of paths / destination ports: 1206 / 149
+-------------------------------------------------------------------------
+Delay:               4.253ns (Levels of Logic = 27)
+  Source:            pomak_0 (FF)
+  Destination:       brojac2_25 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: pomak_0 to brojac2_25
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDSE:C->Q             3   0.514   0.520  pomak_0 (pomak_0)
+     LUT2:I1->O            1   0.612   0.000  Maccum_brojac2_lut<0> (Maccum_brojac2_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  Maccum_brojac2_cy<0> (Maccum_brojac2_cy<0>)
+     MUXCY:CI->O           1   0.052   0.000  Maccum_brojac2_cy<1> (Maccum_brojac2_cy<1>)
+     MUXCY:CI->O           1   0.052   0.000  Maccum_brojac2_cy<2> (Maccum_brojac2_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  Maccum_brojac2_cy<3> (Maccum_brojac2_cy<3>)
+     MUXCY:CI->O           1   0.052   0.000  Maccum_brojac2_cy<4> (Maccum_brojac2_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<5> (Maccum_brojac2_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<6> (Maccum_brojac2_cy<6>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<7> (Maccum_brojac2_cy<7>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<8> (Maccum_brojac2_cy<8>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<9> (Maccum_brojac2_cy<9>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<10> (Maccum_brojac2_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<11> (Maccum_brojac2_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<12> (Maccum_brojac2_cy<12>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<13> (Maccum_brojac2_cy<13>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<14> (Maccum_brojac2_cy<14>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<15> (Maccum_brojac2_cy<15>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<16> (Maccum_brojac2_cy<16>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<17> (Maccum_brojac2_cy<17>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<18> (Maccum_brojac2_cy<18>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<19> (Maccum_brojac2_cy<19>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<20> (Maccum_brojac2_cy<20>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<21> (Maccum_brojac2_cy<21>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<22> (Maccum_brojac2_cy<22>)
+     MUXCY:CI->O           1   0.051   0.000  Maccum_brojac2_cy<23> (Maccum_brojac2_cy<23>)
+     MUXCY:CI->O           0   0.051   0.000  Maccum_brojac2_cy<24> (Maccum_brojac2_cy<24>)
+     XORCY:CI->O           1   0.699   0.000  Maccum_brojac2_xor<25> (Result<25>1)
+     FDR:D                     0.268          brojac2_25
+    ----------------------------------------
+    Total                      4.253ns (3.733ns logic, 0.520ns route)
+                                       (87.8% logic, 12.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 19 / 19
+-------------------------------------------------------------------------
+Offset:              3.749ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       resets (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to resets
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.106   0.879  reset_IBUF (reset_IBUF)
+     INV:I->O              1   0.612   0.357  reset_inv1_INV_0 (reset_inv)
+     FDR:R                     0.795          resets
+    ----------------------------------------
+    Total                      3.749ns (2.513ns logic, 1.236ns route)
+                                       (67.0% logic, 33.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 10 / 6
+-------------------------------------------------------------------------
+Offset:              5.259ns (Levels of Logic = 2)
+  Source:            trenutno_4 (FF)
+  Destination:       ld1 (PAD)
+  Source Clock:      clk rising
+
+  Data Path: trenutno_4 to ld1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             5   0.514   0.607  trenutno_4 (trenutno_4)
+     LUT2:I1->O            1   0.612   0.357  ld41 (ld4_OBUF)
+     OBUF:I->O                 3.169          ld4_OBUF (ld4)
+    ----------------------------------------
+    Total                      5.259ns (4.295ns logic, 0.964ns route)
+                                       (81.7% logic, 18.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.74 secs
+ 
+--> 
+
+Total memory usage is 4513468 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/projekt02/led01.xst" -ofn "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/projekt02/led01.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc led01.ucf -p xc3s500e-fg320-5 "led01.ngc" led01.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o led01_map.ncd led01.ngd led01.pcf 
+par -w -intstyle ise -ol high -t 1 led01_map.ncd led01.ncd led01.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml led01.twx led01.ncd -o led01.twr led01.pcf -ucf led01.ucf 
+bitgen -intstyle ise -f led01.ut led01.ncd 

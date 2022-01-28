@@ -1,0 +1,16 @@
+V3 7
+FL "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/encoder01.vhd" 2021/11/14.20:15:45 P.20131013
+EN work/encoder01 1641805579 \
+      FL "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/encoder01.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/encoder01/RTL 1641805580 \
+      FL "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/encoder01.vhd" \
+      EN work/encoder01 1641805579
+FL "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/projekt02/led01.vhd" 2022/01/10.10:05:35 P.20131013
+EN work/led01 1641805581 \
+      FL "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/projekt02/led01.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/led01/RTL 1641805582 \
+      FL "D:/Stvari/Faks/Alati za razvoj digitalnih sustava/azrds/Popovic/projekt02/led01.vhd" \
+      EN work/led01 1641805581 CP encoder01

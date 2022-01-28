@@ -1,0 +1,794 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 5
+-n 3 -fastpaths -xml led01.twx led01.ncd -o led01.twr led01.pcf -ucf led01.ucf
+
+Design file:              led01.ncd
+Physical constraint file: led01.pcf
+Device,package,speed:     xc3s500e,fg320,-5 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 40%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 1206 paths analyzed, 259 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   4.128ns.
+--------------------------------------------------------------------------------
+
+Paths for end point brojac2_25 (SLICE_X43Y83.CIN), 40 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     15.872ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               brojac2_2 (FF)
+  Destination:          brojac2_25 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.128ns (Levels of Logic = 12)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: brojac2_2 to brojac2_25
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y72.XQ      Tcko                  0.514   brojac2<2>
+                                                       brojac2_2
+    SLICE_X43Y72.F1      net (fanout=1)        0.701   brojac2<2>
+    SLICE_X43Y72.COUT    Topcyf                1.011   brojac2<2>
+                                                       Maccum_brojac2_lut<2>
+                                                       Maccum_brojac2_cy<2>
+                                                       Maccum_brojac2_cy<3>
+    SLICE_X43Y73.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<3>
+    SLICE_X43Y73.COUT    Tbyp                  0.103   brojac2<4>
+                                                       Maccum_brojac2_cy<4>
+                                                       Maccum_brojac2_cy<5>
+    SLICE_X43Y74.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<5>
+    SLICE_X43Y74.COUT    Tbyp                  0.103   brojac2<6>
+                                                       Maccum_brojac2_cy<6>
+                                                       Maccum_brojac2_cy<7>
+    SLICE_X43Y75.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<7>
+    SLICE_X43Y75.COUT    Tbyp                  0.103   brojac2<8>
+                                                       Maccum_brojac2_cy<8>
+                                                       Maccum_brojac2_cy<9>
+    SLICE_X43Y76.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<9>
+    SLICE_X43Y76.COUT    Tbyp                  0.103   brojac2<10>
+                                                       Maccum_brojac2_cy<10>
+                                                       Maccum_brojac2_cy<11>
+    SLICE_X43Y77.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<11>
+    SLICE_X43Y77.COUT    Tbyp                  0.103   brojac2<12>
+                                                       Maccum_brojac2_cy<12>
+                                                       Maccum_brojac2_cy<13>
+    SLICE_X43Y78.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<13>
+    SLICE_X43Y78.COUT    Tbyp                  0.103   brojac2<14>
+                                                       Maccum_brojac2_cy<14>
+                                                       Maccum_brojac2_cy<15>
+    SLICE_X43Y79.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<15>
+    SLICE_X43Y79.COUT    Tbyp                  0.103   brojac2<16>
+                                                       Maccum_brojac2_cy<16>
+                                                       Maccum_brojac2_cy<17>
+    SLICE_X43Y80.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<17>
+    SLICE_X43Y80.COUT    Tbyp                  0.103   brojac2<18>
+                                                       Maccum_brojac2_cy<18>
+                                                       Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<19>
+    SLICE_X43Y81.COUT    Tbyp                  0.103   brojac2<20>
+                                                       Maccum_brojac2_cy<20>
+                                                       Maccum_brojac2_cy<21>
+    SLICE_X43Y82.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<21>
+    SLICE_X43Y82.COUT    Tbyp                  0.103   brojac2<22>
+                                                       Maccum_brojac2_cy<22>
+                                                       Maccum_brojac2_cy<23>
+    SLICE_X43Y83.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<23>
+    SLICE_X43Y83.CLK     Tcinck                0.872   brojac2<24>
+                                                       Maccum_brojac2_cy<24>
+                                                       Maccum_brojac2_xor<25>
+                                                       brojac2_25
+    -------------------------------------------------  ---------------------------
+    Total                                      4.128ns (3.427ns logic, 0.701ns route)
+                                                       (83.0% logic, 17.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     15.951ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pomak_5 (FF)
+  Destination:          brojac2_25 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.049ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: pomak_5 to brojac2_25
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y70.XQ      Tcko                  0.515   pomak<5>
+                                                       pomak_5
+    SLICE_X43Y73.G3      net (fanout=3)        0.864   pomak<5>
+    SLICE_X43Y73.COUT    Topcyg                0.871   brojac2<4>
+                                                       Maccum_brojac2_lut<5>
+                                                       Maccum_brojac2_cy<5>
+    SLICE_X43Y74.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<5>
+    SLICE_X43Y74.COUT    Tbyp                  0.103   brojac2<6>
+                                                       Maccum_brojac2_cy<6>
+                                                       Maccum_brojac2_cy<7>
+    SLICE_X43Y75.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<7>
+    SLICE_X43Y75.COUT    Tbyp                  0.103   brojac2<8>
+                                                       Maccum_brojac2_cy<8>
+                                                       Maccum_brojac2_cy<9>
+    SLICE_X43Y76.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<9>
+    SLICE_X43Y76.COUT    Tbyp                  0.103   brojac2<10>
+                                                       Maccum_brojac2_cy<10>
+                                                       Maccum_brojac2_cy<11>
+    SLICE_X43Y77.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<11>
+    SLICE_X43Y77.COUT    Tbyp                  0.103   brojac2<12>
+                                                       Maccum_brojac2_cy<12>
+                                                       Maccum_brojac2_cy<13>
+    SLICE_X43Y78.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<13>
+    SLICE_X43Y78.COUT    Tbyp                  0.103   brojac2<14>
+                                                       Maccum_brojac2_cy<14>
+                                                       Maccum_brojac2_cy<15>
+    SLICE_X43Y79.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<15>
+    SLICE_X43Y79.COUT    Tbyp                  0.103   brojac2<16>
+                                                       Maccum_brojac2_cy<16>
+                                                       Maccum_brojac2_cy<17>
+    SLICE_X43Y80.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<17>
+    SLICE_X43Y80.COUT    Tbyp                  0.103   brojac2<18>
+                                                       Maccum_brojac2_cy<18>
+                                                       Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<19>
+    SLICE_X43Y81.COUT    Tbyp                  0.103   brojac2<20>
+                                                       Maccum_brojac2_cy<20>
+                                                       Maccum_brojac2_cy<21>
+    SLICE_X43Y82.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<21>
+    SLICE_X43Y82.COUT    Tbyp                  0.103   brojac2<22>
+                                                       Maccum_brojac2_cy<22>
+                                                       Maccum_brojac2_cy<23>
+    SLICE_X43Y83.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<23>
+    SLICE_X43Y83.CLK     Tcinck                0.872   brojac2<24>
+                                                       Maccum_brojac2_cy<24>
+                                                       Maccum_brojac2_xor<25>
+                                                       brojac2_25
+    -------------------------------------------------  ---------------------------
+    Total                                      4.049ns (3.185ns logic, 0.864ns route)
+                                                       (78.7% logic, 21.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     16.006ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pomak_3 (FF)
+  Destination:          brojac2_25 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      3.994ns (Levels of Logic = 12)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: pomak_3 to brojac2_25
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y70.XQ      Tcko                  0.514   pomak<3>
+                                                       pomak_3
+    SLICE_X43Y72.G1      net (fanout=3)        0.707   pomak<3>
+    SLICE_X43Y72.COUT    Topcyg                0.871   brojac2<2>
+                                                       Maccum_brojac2_lut<3>
+                                                       Maccum_brojac2_cy<3>
+    SLICE_X43Y73.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<3>
+    SLICE_X43Y73.COUT    Tbyp                  0.103   brojac2<4>
+                                                       Maccum_brojac2_cy<4>
+                                                       Maccum_brojac2_cy<5>
+    SLICE_X43Y74.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<5>
+    SLICE_X43Y74.COUT    Tbyp                  0.103   brojac2<6>
+                                                       Maccum_brojac2_cy<6>
+                                                       Maccum_brojac2_cy<7>
+    SLICE_X43Y75.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<7>
+    SLICE_X43Y75.COUT    Tbyp                  0.103   brojac2<8>
+                                                       Maccum_brojac2_cy<8>
+                                                       Maccum_brojac2_cy<9>
+    SLICE_X43Y76.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<9>
+    SLICE_X43Y76.COUT    Tbyp                  0.103   brojac2<10>
+                                                       Maccum_brojac2_cy<10>
+                                                       Maccum_brojac2_cy<11>
+    SLICE_X43Y77.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<11>
+    SLICE_X43Y77.COUT    Tbyp                  0.103   brojac2<12>
+                                                       Maccum_brojac2_cy<12>
+                                                       Maccum_brojac2_cy<13>
+    SLICE_X43Y78.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<13>
+    SLICE_X43Y78.COUT    Tbyp                  0.103   brojac2<14>
+                                                       Maccum_brojac2_cy<14>
+                                                       Maccum_brojac2_cy<15>
+    SLICE_X43Y79.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<15>
+    SLICE_X43Y79.COUT    Tbyp                  0.103   brojac2<16>
+                                                       Maccum_brojac2_cy<16>
+                                                       Maccum_brojac2_cy<17>
+    SLICE_X43Y80.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<17>
+    SLICE_X43Y80.COUT    Tbyp                  0.103   brojac2<18>
+                                                       Maccum_brojac2_cy<18>
+                                                       Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<19>
+    SLICE_X43Y81.COUT    Tbyp                  0.103   brojac2<20>
+                                                       Maccum_brojac2_cy<20>
+                                                       Maccum_brojac2_cy<21>
+    SLICE_X43Y82.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<21>
+    SLICE_X43Y82.COUT    Tbyp                  0.103   brojac2<22>
+                                                       Maccum_brojac2_cy<22>
+                                                       Maccum_brojac2_cy<23>
+    SLICE_X43Y83.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<23>
+    SLICE_X43Y83.CLK     Tcinck                0.872   brojac2<24>
+                                                       Maccum_brojac2_cy<24>
+                                                       Maccum_brojac2_xor<25>
+                                                       brojac2_25
+    -------------------------------------------------  ---------------------------
+    Total                                      3.994ns (3.287ns logic, 0.707ns route)
+                                                       (82.3% logic, 17.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point brojac2_23 (SLICE_X43Y82.CIN), 38 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     15.975ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               brojac2_2 (FF)
+  Destination:          brojac2_23 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.025ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: brojac2_2 to brojac2_23
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y72.XQ      Tcko                  0.514   brojac2<2>
+                                                       brojac2_2
+    SLICE_X43Y72.F1      net (fanout=1)        0.701   brojac2<2>
+    SLICE_X43Y72.COUT    Topcyf                1.011   brojac2<2>
+                                                       Maccum_brojac2_lut<2>
+                                                       Maccum_brojac2_cy<2>
+                                                       Maccum_brojac2_cy<3>
+    SLICE_X43Y73.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<3>
+    SLICE_X43Y73.COUT    Tbyp                  0.103   brojac2<4>
+                                                       Maccum_brojac2_cy<4>
+                                                       Maccum_brojac2_cy<5>
+    SLICE_X43Y74.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<5>
+    SLICE_X43Y74.COUT    Tbyp                  0.103   brojac2<6>
+                                                       Maccum_brojac2_cy<6>
+                                                       Maccum_brojac2_cy<7>
+    SLICE_X43Y75.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<7>
+    SLICE_X43Y75.COUT    Tbyp                  0.103   brojac2<8>
+                                                       Maccum_brojac2_cy<8>
+                                                       Maccum_brojac2_cy<9>
+    SLICE_X43Y76.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<9>
+    SLICE_X43Y76.COUT    Tbyp                  0.103   brojac2<10>
+                                                       Maccum_brojac2_cy<10>
+                                                       Maccum_brojac2_cy<11>
+    SLICE_X43Y77.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<11>
+    SLICE_X43Y77.COUT    Tbyp                  0.103   brojac2<12>
+                                                       Maccum_brojac2_cy<12>
+                                                       Maccum_brojac2_cy<13>
+    SLICE_X43Y78.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<13>
+    SLICE_X43Y78.COUT    Tbyp                  0.103   brojac2<14>
+                                                       Maccum_brojac2_cy<14>
+                                                       Maccum_brojac2_cy<15>
+    SLICE_X43Y79.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<15>
+    SLICE_X43Y79.COUT    Tbyp                  0.103   brojac2<16>
+                                                       Maccum_brojac2_cy<16>
+                                                       Maccum_brojac2_cy<17>
+    SLICE_X43Y80.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<17>
+    SLICE_X43Y80.COUT    Tbyp                  0.103   brojac2<18>
+                                                       Maccum_brojac2_cy<18>
+                                                       Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<19>
+    SLICE_X43Y81.COUT    Tbyp                  0.103   brojac2<20>
+                                                       Maccum_brojac2_cy<20>
+                                                       Maccum_brojac2_cy<21>
+    SLICE_X43Y82.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<21>
+    SLICE_X43Y82.CLK     Tcinck                0.872   brojac2<22>
+                                                       Maccum_brojac2_cy<22>
+                                                       Maccum_brojac2_xor<23>
+                                                       brojac2_23
+    -------------------------------------------------  ---------------------------
+    Total                                      4.025ns (3.324ns logic, 0.701ns route)
+                                                       (82.6% logic, 17.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     16.054ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pomak_5 (FF)
+  Destination:          brojac2_23 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      3.946ns (Levels of Logic = 10)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: pomak_5 to brojac2_23
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y70.XQ      Tcko                  0.515   pomak<5>
+                                                       pomak_5
+    SLICE_X43Y73.G3      net (fanout=3)        0.864   pomak<5>
+    SLICE_X43Y73.COUT    Topcyg                0.871   brojac2<4>
+                                                       Maccum_brojac2_lut<5>
+                                                       Maccum_brojac2_cy<5>
+    SLICE_X43Y74.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<5>
+    SLICE_X43Y74.COUT    Tbyp                  0.103   brojac2<6>
+                                                       Maccum_brojac2_cy<6>
+                                                       Maccum_brojac2_cy<7>
+    SLICE_X43Y75.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<7>
+    SLICE_X43Y75.COUT    Tbyp                  0.103   brojac2<8>
+                                                       Maccum_brojac2_cy<8>
+                                                       Maccum_brojac2_cy<9>
+    SLICE_X43Y76.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<9>
+    SLICE_X43Y76.COUT    Tbyp                  0.103   brojac2<10>
+                                                       Maccum_brojac2_cy<10>
+                                                       Maccum_brojac2_cy<11>
+    SLICE_X43Y77.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<11>
+    SLICE_X43Y77.COUT    Tbyp                  0.103   brojac2<12>
+                                                       Maccum_brojac2_cy<12>
+                                                       Maccum_brojac2_cy<13>
+    SLICE_X43Y78.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<13>
+    SLICE_X43Y78.COUT    Tbyp                  0.103   brojac2<14>
+                                                       Maccum_brojac2_cy<14>
+                                                       Maccum_brojac2_cy<15>
+    SLICE_X43Y79.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<15>
+    SLICE_X43Y79.COUT    Tbyp                  0.103   brojac2<16>
+                                                       Maccum_brojac2_cy<16>
+                                                       Maccum_brojac2_cy<17>
+    SLICE_X43Y80.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<17>
+    SLICE_X43Y80.COUT    Tbyp                  0.103   brojac2<18>
+                                                       Maccum_brojac2_cy<18>
+                                                       Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<19>
+    SLICE_X43Y81.COUT    Tbyp                  0.103   brojac2<20>
+                                                       Maccum_brojac2_cy<20>
+                                                       Maccum_brojac2_cy<21>
+    SLICE_X43Y82.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<21>
+    SLICE_X43Y82.CLK     Tcinck                0.872   brojac2<22>
+                                                       Maccum_brojac2_cy<22>
+                                                       Maccum_brojac2_xor<23>
+                                                       brojac2_23
+    -------------------------------------------------  ---------------------------
+    Total                                      3.946ns (3.082ns logic, 0.864ns route)
+                                                       (78.1% logic, 21.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     16.109ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pomak_3 (FF)
+  Destination:          brojac2_23 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      3.891ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: pomak_3 to brojac2_23
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y70.XQ      Tcko                  0.514   pomak<3>
+                                                       pomak_3
+    SLICE_X43Y72.G1      net (fanout=3)        0.707   pomak<3>
+    SLICE_X43Y72.COUT    Topcyg                0.871   brojac2<2>
+                                                       Maccum_brojac2_lut<3>
+                                                       Maccum_brojac2_cy<3>
+    SLICE_X43Y73.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<3>
+    SLICE_X43Y73.COUT    Tbyp                  0.103   brojac2<4>
+                                                       Maccum_brojac2_cy<4>
+                                                       Maccum_brojac2_cy<5>
+    SLICE_X43Y74.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<5>
+    SLICE_X43Y74.COUT    Tbyp                  0.103   brojac2<6>
+                                                       Maccum_brojac2_cy<6>
+                                                       Maccum_brojac2_cy<7>
+    SLICE_X43Y75.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<7>
+    SLICE_X43Y75.COUT    Tbyp                  0.103   brojac2<8>
+                                                       Maccum_brojac2_cy<8>
+                                                       Maccum_brojac2_cy<9>
+    SLICE_X43Y76.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<9>
+    SLICE_X43Y76.COUT    Tbyp                  0.103   brojac2<10>
+                                                       Maccum_brojac2_cy<10>
+                                                       Maccum_brojac2_cy<11>
+    SLICE_X43Y77.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<11>
+    SLICE_X43Y77.COUT    Tbyp                  0.103   brojac2<12>
+                                                       Maccum_brojac2_cy<12>
+                                                       Maccum_brojac2_cy<13>
+    SLICE_X43Y78.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<13>
+    SLICE_X43Y78.COUT    Tbyp                  0.103   brojac2<14>
+                                                       Maccum_brojac2_cy<14>
+                                                       Maccum_brojac2_cy<15>
+    SLICE_X43Y79.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<15>
+    SLICE_X43Y79.COUT    Tbyp                  0.103   brojac2<16>
+                                                       Maccum_brojac2_cy<16>
+                                                       Maccum_brojac2_cy<17>
+    SLICE_X43Y80.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<17>
+    SLICE_X43Y80.COUT    Tbyp                  0.103   brojac2<18>
+                                                       Maccum_brojac2_cy<18>
+                                                       Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<19>
+    SLICE_X43Y81.COUT    Tbyp                  0.103   brojac2<20>
+                                                       Maccum_brojac2_cy<20>
+                                                       Maccum_brojac2_cy<21>
+    SLICE_X43Y82.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<21>
+    SLICE_X43Y82.CLK     Tcinck                0.872   brojac2<22>
+                                                       Maccum_brojac2_cy<22>
+                                                       Maccum_brojac2_xor<23>
+                                                       brojac2_23
+    -------------------------------------------------  ---------------------------
+    Total                                      3.891ns (3.184ns logic, 0.707ns route)
+                                                       (81.8% logic, 18.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point brojac2_21 (SLICE_X43Y81.CIN), 36 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     16.078ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               brojac2_2 (FF)
+  Destination:          brojac2_21 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      3.922ns (Levels of Logic = 10)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: brojac2_2 to brojac2_21
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y72.XQ      Tcko                  0.514   brojac2<2>
+                                                       brojac2_2
+    SLICE_X43Y72.F1      net (fanout=1)        0.701   brojac2<2>
+    SLICE_X43Y72.COUT    Topcyf                1.011   brojac2<2>
+                                                       Maccum_brojac2_lut<2>
+                                                       Maccum_brojac2_cy<2>
+                                                       Maccum_brojac2_cy<3>
+    SLICE_X43Y73.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<3>
+    SLICE_X43Y73.COUT    Tbyp                  0.103   brojac2<4>
+                                                       Maccum_brojac2_cy<4>
+                                                       Maccum_brojac2_cy<5>
+    SLICE_X43Y74.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<5>
+    SLICE_X43Y74.COUT    Tbyp                  0.103   brojac2<6>
+                                                       Maccum_brojac2_cy<6>
+                                                       Maccum_brojac2_cy<7>
+    SLICE_X43Y75.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<7>
+    SLICE_X43Y75.COUT    Tbyp                  0.103   brojac2<8>
+                                                       Maccum_brojac2_cy<8>
+                                                       Maccum_brojac2_cy<9>
+    SLICE_X43Y76.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<9>
+    SLICE_X43Y76.COUT    Tbyp                  0.103   brojac2<10>
+                                                       Maccum_brojac2_cy<10>
+                                                       Maccum_brojac2_cy<11>
+    SLICE_X43Y77.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<11>
+    SLICE_X43Y77.COUT    Tbyp                  0.103   brojac2<12>
+                                                       Maccum_brojac2_cy<12>
+                                                       Maccum_brojac2_cy<13>
+    SLICE_X43Y78.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<13>
+    SLICE_X43Y78.COUT    Tbyp                  0.103   brojac2<14>
+                                                       Maccum_brojac2_cy<14>
+                                                       Maccum_brojac2_cy<15>
+    SLICE_X43Y79.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<15>
+    SLICE_X43Y79.COUT    Tbyp                  0.103   brojac2<16>
+                                                       Maccum_brojac2_cy<16>
+                                                       Maccum_brojac2_cy<17>
+    SLICE_X43Y80.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<17>
+    SLICE_X43Y80.COUT    Tbyp                  0.103   brojac2<18>
+                                                       Maccum_brojac2_cy<18>
+                                                       Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CLK     Tcinck                0.872   brojac2<20>
+                                                       Maccum_brojac2_cy<20>
+                                                       Maccum_brojac2_xor<21>
+                                                       brojac2_21
+    -------------------------------------------------  ---------------------------
+    Total                                      3.922ns (3.221ns logic, 0.701ns route)
+                                                       (82.1% logic, 17.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     16.157ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pomak_5 (FF)
+  Destination:          brojac2_21 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      3.843ns (Levels of Logic = 9)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: pomak_5 to brojac2_21
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y70.XQ      Tcko                  0.515   pomak<5>
+                                                       pomak_5
+    SLICE_X43Y73.G3      net (fanout=3)        0.864   pomak<5>
+    SLICE_X43Y73.COUT    Topcyg                0.871   brojac2<4>
+                                                       Maccum_brojac2_lut<5>
+                                                       Maccum_brojac2_cy<5>
+    SLICE_X43Y74.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<5>
+    SLICE_X43Y74.COUT    Tbyp                  0.103   brojac2<6>
+                                                       Maccum_brojac2_cy<6>
+                                                       Maccum_brojac2_cy<7>
+    SLICE_X43Y75.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<7>
+    SLICE_X43Y75.COUT    Tbyp                  0.103   brojac2<8>
+                                                       Maccum_brojac2_cy<8>
+                                                       Maccum_brojac2_cy<9>
+    SLICE_X43Y76.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<9>
+    SLICE_X43Y76.COUT    Tbyp                  0.103   brojac2<10>
+                                                       Maccum_brojac2_cy<10>
+                                                       Maccum_brojac2_cy<11>
+    SLICE_X43Y77.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<11>
+    SLICE_X43Y77.COUT    Tbyp                  0.103   brojac2<12>
+                                                       Maccum_brojac2_cy<12>
+                                                       Maccum_brojac2_cy<13>
+    SLICE_X43Y78.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<13>
+    SLICE_X43Y78.COUT    Tbyp                  0.103   brojac2<14>
+                                                       Maccum_brojac2_cy<14>
+                                                       Maccum_brojac2_cy<15>
+    SLICE_X43Y79.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<15>
+    SLICE_X43Y79.COUT    Tbyp                  0.103   brojac2<16>
+                                                       Maccum_brojac2_cy<16>
+                                                       Maccum_brojac2_cy<17>
+    SLICE_X43Y80.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<17>
+    SLICE_X43Y80.COUT    Tbyp                  0.103   brojac2<18>
+                                                       Maccum_brojac2_cy<18>
+                                                       Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CLK     Tcinck                0.872   brojac2<20>
+                                                       Maccum_brojac2_cy<20>
+                                                       Maccum_brojac2_xor<21>
+                                                       brojac2_21
+    -------------------------------------------------  ---------------------------
+    Total                                      3.843ns (2.979ns logic, 0.864ns route)
+                                                       (77.5% logic, 22.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     16.212ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pomak_3 (FF)
+  Destination:          brojac2_21 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      3.788ns (Levels of Logic = 10)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: pomak_3 to brojac2_21
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y70.XQ      Tcko                  0.514   pomak<3>
+                                                       pomak_3
+    SLICE_X43Y72.G1      net (fanout=3)        0.707   pomak<3>
+    SLICE_X43Y72.COUT    Topcyg                0.871   brojac2<2>
+                                                       Maccum_brojac2_lut<3>
+                                                       Maccum_brojac2_cy<3>
+    SLICE_X43Y73.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<3>
+    SLICE_X43Y73.COUT    Tbyp                  0.103   brojac2<4>
+                                                       Maccum_brojac2_cy<4>
+                                                       Maccum_brojac2_cy<5>
+    SLICE_X43Y74.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<5>
+    SLICE_X43Y74.COUT    Tbyp                  0.103   brojac2<6>
+                                                       Maccum_brojac2_cy<6>
+                                                       Maccum_brojac2_cy<7>
+    SLICE_X43Y75.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<7>
+    SLICE_X43Y75.COUT    Tbyp                  0.103   brojac2<8>
+                                                       Maccum_brojac2_cy<8>
+                                                       Maccum_brojac2_cy<9>
+    SLICE_X43Y76.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<9>
+    SLICE_X43Y76.COUT    Tbyp                  0.103   brojac2<10>
+                                                       Maccum_brojac2_cy<10>
+                                                       Maccum_brojac2_cy<11>
+    SLICE_X43Y77.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<11>
+    SLICE_X43Y77.COUT    Tbyp                  0.103   brojac2<12>
+                                                       Maccum_brojac2_cy<12>
+                                                       Maccum_brojac2_cy<13>
+    SLICE_X43Y78.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<13>
+    SLICE_X43Y78.COUT    Tbyp                  0.103   brojac2<14>
+                                                       Maccum_brojac2_cy<14>
+                                                       Maccum_brojac2_cy<15>
+    SLICE_X43Y79.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<15>
+    SLICE_X43Y79.COUT    Tbyp                  0.103   brojac2<16>
+                                                       Maccum_brojac2_cy<16>
+                                                       Maccum_brojac2_cy<17>
+    SLICE_X43Y80.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<17>
+    SLICE_X43Y80.COUT    Tbyp                  0.103   brojac2<18>
+                                                       Maccum_brojac2_cy<18>
+                                                       Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CIN     net (fanout=1)        0.000   Maccum_brojac2_cy<19>
+    SLICE_X43Y81.CLK     Tcinck                0.872   brojac2<20>
+                                                       Maccum_brojac2_cy<20>
+                                                       Maccum_brojac2_xor<21>
+                                                       brojac2_21
+    -------------------------------------------------  ---------------------------
+    Total                                      3.788ns (3.081ns logic, 0.707ns route)
+                                                       (81.3% logic, 18.7% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 40%;
+--------------------------------------------------------------------------------
+
+Paths for end point enc/rotary_event_local (SLICE_X51Y61.G4), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.108ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               enc/rotary_q1_delay (FF)
+  Destination:          enc/rotary_event_local (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.108ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: enc/rotary_q1_delay to enc/rotary_event_local
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y60.YQ      Tcko                  0.409   enc/rotary_q1_delay
+                                                       enc/rotary_q1_delay
+    SLICE_X51Y61.G4      net (fanout=1)        0.251   enc/rotary_q1_delay
+    SLICE_X51Y61.CLK     Tckg        (-Th)    -0.448   enc/rotary_event_local
+                                                       enc/rot_event1
+                                                       enc/rotary_event_local
+    -------------------------------------------------  ---------------------------
+    Total                                      1.108ns (0.857ns logic, 0.251ns route)
+                                                       (77.3% logic, 22.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point trenutno_3 (SLICE_X47Y76.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.117ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               trenutno_2 (FF)
+  Destination:          trenutno_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.117ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: trenutno_2 to trenutno_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X47Y76.YQ      Tcko                  0.409   trenutno<3>
+                                                       trenutno_2
+    SLICE_X47Y76.BX      net (fanout=2)        0.628   trenutno<2>
+    SLICE_X47Y76.CLK     Tckdi       (-Th)    -0.080   trenutno<3>
+                                                       trenutno_3
+    -------------------------------------------------  ---------------------------
+    Total                                      1.117ns (0.489ns logic, 0.628ns route)
+                                                       (43.8% logic, 56.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Q2 (SLICE_X44Y73.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.138ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Q1 (FF)
+  Destination:          Q2 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.138ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: Q1 to Q2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X44Y73.YQ      Tcko                  0.454   Q2
+                                                       Q1
+    SLICE_X44Y73.BX      net (fanout=2)        0.568   Q1
+    SLICE_X44Y73.CLK     Tckdi       (-Th)    -0.116   Q2
+                                                       Q2
+    -------------------------------------------------  ---------------------------
+    Total                                      1.138ns (0.570ns logic, 0.568ns route)
+                                                       (50.1% logic, 49.9% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 40%;
+--------------------------------------------------------------------------------
+Slack: 18.203ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 8.000ns
+  High pulse limit: 0.719ns (Tch)
+  Physical resource: enc/rotary_q2/CLK
+  Logical resource: enc/rotary_q2/CK
+  Location pin: SLICE_X54Y60.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.203ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 8.000ns
+  High pulse limit: 0.719ns (Tch)
+  Physical resource: enc/rotary_q2/CLK
+  Logical resource: enc/rotary_q1/CK
+  Location pin: SLICE_X54Y60.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.203ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 8.000ns
+  High pulse limit: 0.719ns (Tch)
+  Physical resource: trenutno<5>/CLK
+  Logical resource: trenutno_5/CK
+  Location pin: SLICE_X46Y77.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    4.128|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 1206 paths, 0 nets, and 217 connections
+
+Design statistics:
+   Minimum period:   4.128ns{1}   (Maximum frequency: 242.248MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Mon Jan 10 10:07:08 2022 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 4510 MB
+
+
+
