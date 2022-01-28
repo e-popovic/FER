@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=D:\Stvari\Faks\Alati za razvoj digitalnih sustava\azrds\Popovic\projekt02\led01.ncd
+OUTFILE=D:\Stvari\Faks\Alati za razvoj digitalnih sustava\azrds\Popovic\projekt02\led01.bit
+FAMILY=Spartan3E
+PART=xc3s500e-5fg320
+WORKINGDIR=D:\Stvari\Faks\Alati za razvoj digitalnih sustava\azrds\Popovic\projekt02
+LICENSE=WebPack
+USER_INFO=211917851_0_0_115

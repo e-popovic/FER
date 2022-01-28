@@ -1,0 +1,2 @@
+vhdl work "../encoder01.vhd"
+vhdl work "led01.vhd"
