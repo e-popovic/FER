@@ -1,0 +1,494 @@
+/* RECENZIJE!!!!!!!!! NE OSVRTI */
+
+1.)
+
+Za podatke sam odabrala jednu od manjih kolekcija, Arts, kako imam slabije računalo.
+Stvorila sam bazu podataka "projekt3" i unijela kolekciju nazvanu "amazon_reviews".
+
+Primjer zapisa:
+{
+    "_id" : {
+        "userId" : "A2PXVMF9DH8NDZ",
+        "productId" : "B000G6HRZE",
+        "summary" : "Not Very Sharp",
+        "time" : ISODate("2010-03-20T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "Dritz(R) Extra Large Safety Pins-Size 3 65/Pkg",
+            "price" : 4.43
+        },
+        "review" : {
+            "profileName" : "M. Sarrao",
+            "helpfulness" : "8/8",
+            "score" : 3.0,
+            "text" : "Like the previous reviewer, I was very happy to be able to order safety pins on-line. I live in a small town, and they are impossible to find. These safety pins are very large- about 2.25\" long. Also, they are not very sharp. I used them to pin 2-3 garments together for a children's clothing resale, and had a VERY difficult time getting the point to go through in both directions. This was true on all types of fabric from denim to cotton to jersey. The dull point of one of these safety pins tore a hole in one polo-style, jersey shirt!"
+        }
+    }
+}
+
+Kao _id svakog osvrta koristila sam userId, productId, summary i time.
+Statistika o kolekciji vidljiva je kroz naredbu db.getCollection('amazon_reviews').stats().
+U kolekciji ima 27933 zapisa (polje count). 		
+Prosječna veličina zapisa je 709 bajta (polje avgObjSize).
+Kolekcija ima 19820585 bajta (19.8 MB) (polje size). 
+Na disku podaci zauzimaju 10850304 bajta (10.8 MB) (polje storageSize).
+Vidljivo je da je zauzeta memorija diska manja od veličine kolekcije. 
+Ovo smanjenje potrebnog prostora moguće je zbog kompresije podataka prilikom spremanja na disk.
+
+
+2.)
+
+Upit (trajanje: 0.042s):
+db.getCollection('amazon_reviews').distinct("value.review.score")
+
+Kao rješenje se dobiva polje sa svim vrijednostima ocjena (1-5), svaka je korištena bar u jednoj recenziji.
+[
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0
+]
+
+
+3.)
+
+Stvorila sam kolekciju osvrta "null_prices" koji se odnose samo na proizvode s ocjenom "null"
+Upit (trajanje: 0.114s):
+db.amazon_reviews.aggregate( [
+  { $match: { 'value.product.price' : { $type: 10 } } },
+  { $out: "null_prices" }
+] );
+Rezultat: Fetched 0 record(s) in 0ms
+
+U toj kolekciji pretražila sam koliko ima jedinstvenih productId-ova.
+Upit (trajanje: 0.012s):
+db.getCollection('null_prices').distinct("_id.productId").length
+Rezultat: 944 proizvoda
+
+
+4.)			(JEL TO TAK???????)
+
+Upit (trajanje: 0.068s):
+db.getCollection('amazon_reviews')
+    .find({ 'value.review.score': { $eq: 1 } }, {'value.product.price': 1, 'value.product.title': 1, '_id.time': 1 })
+    .sort({ '_id.time':-1, '_id':1 })
+    .skip((db.getCollection('amazon_reviews')
+        .find({ 'value.review.score': { $eq: 1 } }, {'value.product.price': 1, 'value.product.title': 1, '_id.time': 1 })
+        .sort({ '_id.time':-1, '_id':1 })).count() - 20)
+    .limit(10)
+
+Upit kreće s filtriranjem dokumenata po ocjeni i biranjem atributa koji će se prikazati.
+Slijedi sortiranje. Nakon toga preskače se do zadnjih 20 rezultata i uzima se viših 10.
+
+Rezultat upita:
+
+/* 1 */
+{
+    "_id" : {
+        "time" : ISODate("2003-01-27T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "Euro-Pro Dressmaker 998B Sewing Center",
+            "price" : 34.99
+        }
+    }
+}
+
+/* 2 */
+{
+    "_id" : {
+        "time" : ISODate("2003-01-16T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "Hello Kitty Sticker Maker",
+            "price" : null
+        }
+    }
+}
+
+/* 3 */
+{
+    "_id" : {
+        "time" : ISODate("2003-01-10T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "Euro-Pro Dressmaker 998B Sewing Center",
+            "price" : 34.99
+        }
+    }
+}
+
+/* 4 */
+{
+    "_id" : {
+        "time" : ISODate("2003-01-04T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "SINGER 5040 40-Stitch-Function Sewing Machine",
+            "price" : null
+        }
+    }
+}
+
+/* 5 */
+{
+    "_id" : {
+        "time" : ISODate("2003-01-02T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "NSI Rock Tumbler Classic",
+            "price" : 46.8
+        }
+    }
+}
+
+/* 6 */
+{
+    "_id" : {
+        "time" : ISODate("2002-12-27T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "Hello Kitty Sticker Maker",
+            "price" : null
+        }
+    }
+}
+
+/* 7 */
+{
+    "_id" : {
+        "time" : ISODate("2002-12-25T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "SINGER 5040 40-Stitch-Function Sewing Machine",
+            "price" : null
+        }
+    }
+}
+
+/* 8 */
+{
+    "_id" : {
+        "time" : ISODate("2002-12-13T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "Euro-Pro EP150 Tiny Sewing Machine",
+            "price" : null
+        }
+    }
+}
+
+/* 9 */
+{
+    "_id" : {
+        "time" : ISODate("2002-12-12T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "Euro-Pro EP150 Tiny Sewing Machine",
+            "price" : null
+        }
+    }
+}
+
+/* 10 */
+{
+    "_id" : {
+        "time" : ISODate("2002-12-04T01:00:00.000Z")
+    },
+    "value" : {
+        "product" : {
+            "title" : "NSI Rock Tumbler Classic",
+            "price" : 46.8
+        }
+    }
+}
+
+
+5.)
+
+Zadatak sam riješila kroz više upita.
+
+Prvo sam izračunala koliko ima jedinstvenih proizvoda (productId) i dobila rezultat 4211.
+Upit (trajanje: 0.051s):
+db.getCollection('amazon_reviews').distinct("_id.productId").length
+
+Sljedeći upit je agregat. Grupira podatke tako da za svaki proizvod ispisuje polje svih njegovih cijena. 
+U "$match" dijelu rezultati se filtriraju tako da se prikažu samo oni proizvodi koji imaju jednu cijenu.
+Upit (trajanje: 0.08s):
+db.getCollection('amazon_reviews').aggregate([
+    { $group: { _id:'$_id.productId', productPrices: { $addToSet: '$value.product.price' }} },
+    { $match: {'productPrices': {'$size': 1}}}
+])
+Rezultati se kroz Robo 3T prikazuju po stranicama. 
+Kada se zahtjeva prikaz zadnje stranice koja treba prikazati rezultate 4201 - 4250 ona staje nakon 11 zapisa, na zapisu 4211.
+Rezultata s jednom cijenom jednako je kao i svih rezultata te nije potrebno ništa brisati.
+
+Da rezultati nisu jednaki drugi upit bi se mogao modificirati u $match dijelu, da traži proizvode s 2 (ili više) cijene.
+Tako bi se saznao id proizvoda preko kojeg bi se mogli obrisati dokumenti u kolekciji putem upita. Npr
+db.getCollection('amazon_reviews').deleteMany( {'_id.productId': 'B0006IYJJE', 'value.product.price': 93.99});
+Ovakav upit obrisao bi sve osvrte za proizvod B0006IYJJE s cijenom 93.99, a ostavio dokumente istog productId-a s drugom cijenom.
+
+
+6.)
+Zadatak je rješen u više koraka. 
+Prvo sam napravila kolekciju "amazon_reviews_copy" koja je jednaka kolekciji amazon_reviews. Robo 3T desnim klikom na kolekciju nudi opciju "Duplicate collection."
+U amazon_reviews_copy.value.review sam unijela podatke userId, summary i datum osvrta koji su u kolekciji amazon_reviews postojali samo u _id.
+Upit (trajanje: 1.08s):
+db.amazon_reviews_copy.updateMany(
+    {},
+    [
+        {"$set": {"value.review.summary": "$_id.summary"}}
+    ]
+)
+Upit (trajanje: 1.00s):
+db.amazon_reviews_copy.updateMany(
+    {},
+    [
+        {"$set": {"value.review.time": "$_id.time"}}
+    ]
+)
+Upit (trajanje: 0.949s):
+db.amazon_reviews_copy.updateMany(
+    {},
+    [
+        {"$set": {"value.review.userId": "$_id.userId"}}
+    ]
+)
+
+Svi upiti su imali rezultat koji pokazuje da su izmijenjeni svi dokumenti kolekcije:
+{
+    "acknowledged" : true,
+    "matchedCount" : 27933.0,
+    "modifiedCount" : 27933.0
+}
+
+Iz ove modificirane kolekcije napravila sam novu, "products", gdje je dokumentima _id jednak productId-u. 
+Dokumenti sadrže i naslov i cijenu, te polje sa svim osvrtima tog proizvoda.
+Upit (trajanje: 0.45s):
+db.amazon_reviews_copy.aggregate([
+    { $group: { _id:'$_id.productId', 
+        title: { $first: '$value.product.title' },
+        productPrices: { $first: '$value.product.price' },
+        reviews: { $addToSet: '$value.review' },
+        },
+    },
+    { $out: "products" }
+])
+Rezultat: Fetched 0 record(s) in 0ms
+
+U zadnjem koraku uklonila sam cijenu svim proizvodima s cijenom "null".
+Upit (trajanje: 0.47s):
+db.products.updateMany(
+   { productPrices: null },
+   { $unset: { productPrices: "" } }
+)
+Rezultat javlja da je ovaj upit obrisao cijenu 944 proizvoda (što je broj proizvoda s cijenom null - zadatak 3):
+{
+    "acknowledged" : true,
+    "matchedCount" : 944.0,
+    "modifiedCount" : 944.0
+}
+
+
+7.)
+Kroz agregat se stvara projekcija koja prikazuje id proizvoda i broj osvrta te se ograniči na 10 zapisa.
+Za zapise s najviše osvrta sortira se po broju osvrta silazno (smjer -1), a za najmanje osvrta se sortira uzlazno (smjer 1).
+
+Proizvodi s najviše recenzija:
+
+Upit (trajanje: 0.025s):
+db.products.aggregate([
+   { $project: { reviews: { $cond: { if: { $isArray: "$reviews" }, then: { $size: "$reviews" }, else: "NA"} } } },
+   { $sort: { reviews: -1 } },
+   { $limit: 10 },
+] )
+
+Šifre: B000JQM1DE, B0000CBK1L, B000F7DPEQ, B000EOX28E, B0002KHBS2, B000NK5VY2, B000N77LCA, B000P0LNRE, B000PCCJYI, B0008G8G8Y
+(U preslici ekrana vidljivi su i izbrojani osvrti.)
+
+Proizvodi s najmanje recenzija:
+
+Upit (trajanje: 0.022s):
+db.products.aggregate([
+   { $project: { reviews: { $cond: { if: { $isArray: "$reviews" }, then: { $size: "$reviews" }, else: "NA"} } } },
+   { $sort: { reviews: 1 } },
+   { $limit: 10 },
+] )
+
+Šifre: B000140KI2, B00065CS7W, B000NFDUIG, B0006L9QTY, B0002TTL4K, B00005C0VF, B000HF6YHG, B0000V0WJ8, B000OVPDNE, B000PDIGLM
+(U preslici ekrana vidljivi su i izbrojani osvrti.)
+
+
+8.)
+Za prosječnu ocjenu svih osvrta koristila sam $avg svih osvrta jednog proizvoda.
+Upit (trajanje: 0.287s):
+db.products.updateMany({},[
+        {"$set": {"reviewStats.avgReviewScore": { $avg: "$reviews.score" } }}
+])
+
+Za broj osvrta koristila sam $size (veličinu) polja reviews.
+Upit (trajanje: 0.276s):
+db.products.updateMany({},[
+        {"$set": {"reviewStats.reviewsCount": { $size: "$reviews" }}}
+])
+
+Za distribuciju ocjena koristila sam iduće funkcije. 
+Iterira se nad cijelom bazom, za svaki proizvod brojač računa pojavljivanje određene opcije i zapisuje broj uz proizvod.
+Pozivala sam ove funkcije 5 puta, svaki put za različitu ocjenu.
+Upit (trajanja: 18s, 16.9s, 16.7s, 16.6s, 16.8s):
+var t = db.products.find();
+t.forEach(function( aRow ) {
+    var counter = 0;
+    aRow.reviews.forEach( function( aReview ){
+        if (aReview.score == 5.0){		// promijeni '== 5.0' ovisno o ocjeni 
+            counter = counter + 1;
+        }
+    } )
+    db.products.update(
+        { _id: aRow._id }, 
+        { "$set": { "reviewStats.reviewScoreDistrib.5": counter } }	// promijeni 'reviewScoreDistrib.5' ovisno o ocjeni 
+    );
+});
+
+
+9.)
+Za pomoć pri pronalaženju traženih korisnika stvorila sam kolekciju users sa svim korisnicima (userId) i brojem njihovih recenzija:
+Upit (trajanje: 88.8s):
+var t = db.products.find();
+t.forEach(function( aRow ) {
+    aRow.reviews.forEach( function( aReview ){
+        db.users.update(
+            { _id: aReview.userId }, 
+            { $inc: {noReviews: 1}, $set: {_id: aReview.userId} },
+            {upsert: true}
+        );
+    } );    
+});
+
+U kolekciji sam pronašla korisnike s najmanje i najviše recenzija sortiranjem po broju recenzija uzlazno ili silazno i ograničavanjem na ispis jednog dokumenta. 
+Kako postoje recenzije s nepoznatim autorom (unknown), takav id se ne gleda kao validan rezultat i mora se isfiltrirati.
+Upit (trajanje: 0.064s, 0.063s):
+db.users.find({ _id: { $ne: "unknown"} }).sort({noReviews: 1}).limit(1);
+db.users.find({ _id: { $ne: "unknown"} }).sort({noReviews: -1}).limit(1);
+
+Korisnik s najmanje recenzija (1) je A002211213O7OZD4NB6T4, a s najviše (39) je A2D1LPEUCTNT8X.
+
+Recenzije korisnika s najmanje recenzija ispisane su pomoću naredbe:
+Upit (trajanje: 0.031s):
+db.products.aggregate([
+    {$match: {'reviews.userId': 'A002211213O7OZD4NB6T4'}},
+    {$project: {
+        usersReviews: {$filter: {
+            input: '$reviews',
+            as: 'review',
+            cond: {$eq: ['$$review.userId', 'A002211213O7OZD4NB6T4']}
+        }},
+        _id: 0
+    }}
+])
+Upit za recenzije korisnika s najviše recenzija izgledao je jednako, samo za drugi userId:
+Upit (trajanje: 0.044s):
+db.products.aggregate([
+    {$match: {'reviews.userId': 'A2D1LPEUCTNT8X'}},
+    {$project: {
+        usersReviews: {$filter: {
+            input: '$reviews',
+            as: 'review',
+            cond: {$eq: ['$$review.userId', 'A2D1LPEUCTNT8X']}
+        }},
+        _id: 0
+    }}
+])
+
+Indeks sam kreirala sljedećom naredbom.
+Upit (trajanje: 0.225s):
+db.products.createIndex({'reviews.userId' : 1})
+
+Ponovno izvršavanje upita za recenzije specifičnih korisnika za korisnika s:
+a) najmanje recenzija: Vrijeme izvođenja se smanjilo s 0.031s na 0.003s.
+b) najviše recenzija: Vrijeme izvođenja se smanjilo s 0.044s na 0.008s.
+
+Explain se dobiva upitom db.products.explain().aggregate(...).
+Prije stvaranja indeksa koristi se samo inputStage.stage COLLSCAN, skeniranje kolekcije.
+Nakon stvaranja indeksa inputStage.stage je vrijednosti FETCH, koji dodatno ima inputStage.stage IXSCAN.
+Ovime se u proces uključuje indeks na reviews.userId. 
+Korištenjem indeksa znatno se smanjilo vrijeme izvođenja.
+
+
+10.)
+
+/*Dohvat recenzija koje sadrže 'mindful' bez indeksa, pomoću regexa, dobiva se idućom funkcijom.
+Upit (trajanje: 0.065s):
+db.products.aggregate([
+    {$match: {'reviews.text': {$regex : "mindful"}}},
+    {$project: {
+        usersReviews: {$filter: {
+            input: '$reviews',
+            as: 'review',
+            cond: { "$regexMatch": { 
+                                "input": "$$review.text",
+                                "regex": /mindful/
+                            } }
+        }},
+        _id: 0
+    }}
+])
+Dobiva se 5 recenzija.
+*/
+
+Dohvat recenzija koje sadrže 'mindful' bez indeksa, pomoću regexa, dobiva se idućom funkcijom.
+Upit (trajanje: 0.148s):
+db.products.find({"reviews.text" : {$regex : "mindful"}})
+Dobiva se 5 proizvoda, svaki ima u recenziji traženu riječ mindful.
+
+
+Text indeks nad reviews.text sam stvorila pomoću upita:
+Upit (trajanje: 1.89s):
+db.products.createIndex( { 'reviews.text': "text" } )
+
+Nakon stvaranja text indeksa može se koristiti operator $text. 
+Novi upit s istom funkcionalnošću slijedi.
+Upit (trajanje: 0.071s):
+db.products.find( { $text: { $search: "\"mindful\"" } } )
+
+Trajanje upita se skratilo za pola upotrebom $text operatora.
+Vrlina njega je brzina, ali potrebno je napraviti text indeks nad atributom nad kojim se provodi pretraga.
+Stvaranje indeksa također oduzima vrijeme i u nekim slučajevima nije isplativo.
+Regex je svestraniji i ne zahtjeva stvaranje indeksa, što je efikasnije ako se kroz projekt ne koristi često pretraga kroz duge tekstove.
+
+
+11.)
+
+Broj proizvoda s traženim uvjetima dobiva se upitom:
+Upit (trajanje: 0.027s):
+db.products.find( { 
+    "reviewStats.reviewsCount" : { "$gte": 200 },
+    "reviewStats.avgReviewScore": { "$gte": 4.5 }, 
+    "productPrices": { "$lt": 20 },
+    $text: { $search: "\"wonderful\"" }
+} ).count();
+
+Broj ovakvih proizvoda je nula.
+Kako sam uzela jednu od manjih kolekcija, ovo nije iznenađujuć rezultat.
+
+
+
+
+
+
+
+
+
+
+
