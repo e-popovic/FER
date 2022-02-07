@@ -1,0 +1,273 @@
+/*1.)*/
+
+db.dvdrent.mapReduce(
+function() {
+	if (this.film.actors != null) {
+		if (this.film.categories.length > 1){
+			var filmName = this.film.title;
+			
+			var categories = []
+			this.film.categories.forEach( function(category) {
+				categories = categories.concat(category.name);
+			});
+			
+			this.film.actors.forEach( function(actor) {
+				emit(
+					{
+						id: actor.actor_id,
+						fullname: actor.first_name + ' ' + actor.last_name
+					},
+					{
+						categories: categories,
+						films : [
+							filmName
+						]
+					}
+				)})
+		}
+	}
+},
+function(key, values) {
+	var rv = {
+		categories: [],
+		films: [],
+	};
+	values.forEach( function(value) {
+		rv.categories = rv.categories.concat(value.categories);
+		rv.films = rv.films.concat(value.films);
+	});
+	
+	rv.categories = rv.categories.sort( function(a,b){
+		return a > b;
+	});
+	rv.films = rv.films.sort( function(a,b){
+		return a > b;
+	});
+	rv.categories = rv.categories.filter((obj,idx,arr) => (
+		rv.categories.findIndex((o) => o === obj) === idx
+	));
+	rv.films = rv.films.filter((obj,idx,arr) => (
+		rv.films.findIndex((o) => o === obj) === idx
+	));
+	
+	return rv;
+},
+{
+
+})
+
+db.dvdrent.mapReduce(
+`function() {
+	if (this.film.actors != null) {
+		if (this.film.categories.length > 1){
+			var filmName = this.film.title;
+			
+			var categories = []
+			this.film.categories.forEach( function(category) {
+				categories = categories.concat(category.name);
+			});
+			
+			this.film.actors.forEach( function(actor) {
+				emit(
+					{
+						id: actor.actor_id,
+						fullname: actor.first_name + ' ' + actor.last_name
+					},
+					{
+						categories: categories,
+						films : [
+							filmName
+						]
+					}
+				)})
+		}
+	}
+};`,
+`function(key, values) {
+	var rv = {
+		categories: [],
+		films: [],
+	};
+	values.forEach( function(value) {
+		rv.categories = rv.categories.concat(value.categories);
+		rv.films = rv.films.concat(value.films);
+	});
+	
+	rv.categories = rv.categories.sort( function(a,b){
+		return a > b;
+	});
+	rv.films = rv.films.sort( function(a,b){
+		return a > b;
+	});
+	rv.categories = rv.categories.filter((obj,idx,arr) => (
+		rv.categories.findIndex((o) => o === obj) === idx
+	));
+	rv.films = rv.films.filter((obj,idx,arr) => (
+		rv.films.findIndex((o) => o === obj) === idx
+	));
+	
+	return rv;
+};`,
+{
+out: { inline:1 }
+})
+
+
+
+/*2.)*/
+
+db.nobelprizes.mapReduce(
+	function(){
+		if (this.laureates !== undefined) {
+			var year = this.year;
+			var category = this.category;
+			
+			if ((new Date()).getFullYear() - year < 5)
+				this.laureates.forEach(function(l) {
+					emit(year, {laureates:[{surname:l.surname, category:category}] })
+				})
+		}
+	},
+	function(key, values) {
+		var rv = {
+			laureates: []
+		};
+		
+		values.forEach( function(value) {
+			rv.laureates = rv.laureates.concat(value.laureates);
+		});
+		
+		rv.laureates = rv.laureates.sort(function(a,b) {
+			var surnameA = a.surname.toUpperCase();
+			var surnameB = b.surname.toUpperCase();
+			return (surnameA < surnameB)? -1 : (surnameA > surnameB)? 1 : 0;
+		});
+		
+		return rv;
+	},
+)
+
+/* za cmd */
+db.nobelprizes.mapReduce(
+	`function(){
+		if (this.laureates !== undefined) {
+			var year = this.year;
+			var category = this.category;
+			
+			if ((new Date()).getFullYear() - year < 5)
+				this.laureates.forEach(function(l) {
+					emit(year, {laureates:[{surname:l.surname, category:category}] })
+				})
+		}
+	};`,
+	`function(key, values) {
+		var rv = {
+			laureates: []
+		};
+		
+		values.forEach( function(value) {
+			rv.laureates = rv.laureates.concat(value.laureates);
+		});
+		
+		rv.laureates = rv.laureates.sort(function(a,b) {
+			var surnameA = a.surname.toUpperCase();
+			var surnameB = b.surname.toUpperCase();
+			return (surnameA < surnameB)? -1 : (surnameA > surnameB)? 1 : 0;
+		});
+		
+		return rv;
+	};`,
+{
+	out: { inline:1 }
+}
+)
+
+/*3.)*/
+
+db.nobelprizes.mapReduce(
+function() {
+	if (this.laureates !== undefined) {
+		var year = this.year;
+		var category = this.category;
+		
+		this.laureates.forEach( function(laureate) {
+			emit(
+				{
+					category: category
+				},
+				{
+					laureates : [
+						{
+							year: year,
+							firstname: laureate.firstname,
+							surname: laureate.surname,
+						}
+					]
+				}
+			)
+		})
+	}
+},
+function(key, values) {
+	var rv = {
+		laureates: []
+	};
+	values.forEach( function(value) {
+		rv.laureates = rv.laureates.concat(value.laureates);
+	});
+	rv.laureates = rv.laureates.sort(function(a,b){
+		if (a.year == b.year) {
+			return a.surname > b.surname;
+		}
+		return a.year - b.year;
+	});
+	return rv;
+},
+{
+
+})
+
+
+
+db.nobelprizes.mapReduce(
+`function() {
+	if (this.laureates !== undefined) {
+		var year = this.year;
+		var category = this.category;
+		
+		this.laureates.forEach( function(laureate) {
+			emit(
+				{
+					category: category
+				},
+				{
+					laureates : [
+						{
+							year: year,
+							firstname: laureate.firstname,
+							surname: laureate.surname,
+						}
+					]
+				}
+			)
+		})
+	}
+};`,
+`function(key, values) {
+	var rv = {
+		laureates: []
+	};
+	values.forEach( function(value) {
+		rv.laureates = rv.laureates.concat(value.laureates);
+	});
+	rv.laureates = rv.laureates.sort(function(a,b){
+		if (a.year == b.year) {
+			return a.surname > b.surname;
+		}
+		return a.year - b.year;
+	});
+	return rv;
+};`,
+{
+out: { inline:1 }
+})

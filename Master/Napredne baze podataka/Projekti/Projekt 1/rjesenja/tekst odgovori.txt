@@ -1,0 +1,266 @@
+***ODGOVORI***
+
+1.)
+
+CREATE TABLE IF NOT EXISTS public.games
+(
+    asin character varying COLLATE pg_catalog."default" NOT NULL,
+    questiontype character varying COLLATE pg_catalog."default" NOT NULL,
+    question character varying COLLATE pg_catalog."default" NOT NULL,
+    answer character varying COLLATE pg_catalog."default" NOT NULL,
+    answertime character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT games_pkey PRIMARY KEY (asin)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.games
+    OWNER to postgres;
+	
+
+
+CREATE INDEX "answerIndex"
+    ON public.games USING gin
+    (answer COLLATE pg_catalog."en-US-x-icu" gin_trgm_ops)
+    TABLESPACE pg_default;
+	
+!!!!!!!!!  ovo ispod izvrti jos jednom na kraju  !!!!!!!!!
+	
+ima 13 317 zapisa --> SELECT COUNT(*) FROM games;
+
+prosjecni zapis: SELECT pg_size_pretty( pg_table_size('games') / (SELECT COUNT(*) FROM games) );
+
+
+2.)
+
+CREATE TEXT SEARCH CONFIGURATION ep50608 (
+    PARSER = pg_catalog.default
+);
+
+ALTER TEXT SEARCH CONFIGURATION ep50608
+ALTER MAPPING FOR asciiword,word,numword,asciihword,hword,numhword,hword_asciipart,hword_part,
+hword_numpart,email,protocol,url,host,url_path,file,sfloat, float,int,uint,version,tag,entity,blank 
+WITH simple; 
+
+numword:
+SELECT * 
+FROM ts_debug('ep50608', 
+			  (SELECT answertime FROM games
+				WHERE asin LIKE 'B00GHTP7SS12201'));
+				
+host, asciiword:
+SELECT * 
+FROM ts_debug('ep50608', 
+			  (SELECT answer FROM games
+				WHERE asin LIKE 'B003VAHYQY3356'));
+				
+word:
+SELECT * 
+FROM ts_debug('ep50608', 
+			  (SELECT questiontype FROM games
+				WHERE asin LIKE 'B00GHTP7SS12201'));
+				
+Normalizacija uključuje uklanjanje stop riječi i svođenje na leksem. 
+Simple ne čini to, što je vidljivo iz primjera. 
+U stupcu lexemes za stop riječ "the" piše "{the}", nije uklonjena. 
+Riječi nisu svedene na leksem, u lexemes stupcu riječi "questions" i "answers" su napisane u množini, očigledno nisu promjenjene u korijenski oblik riječi.
+
+
+3.)
+
+ALTER TEXT SEARCH CONFIGURATION ep50608
+ALTER MAPPING FOR asciiword,word
+WITH english_stem, simple; 
+
+SELECT * 
+FROM ts_debug('ep50608', 
+			  (SELECT answer FROM games
+				WHERE asin LIKE 'B00GJXMRX0122385'));
+
+Iz slike ekrana se u stupcu lexemes vidi uklanjanje stop riječi (I, have, the, it), svođenje na normalizirani oblik (breaks postaje break) i zamjena velikih slova malima (BREAKS -> break, EH -> eh).
+U stupcu dictionaries vidljiv je redoslijed korištenih rječnika. Ako je moguće koristi se english_stem za prethodno opisanu transformaciju, inače dio teksta obradi simple rječnik.
+
+4.)
+
+CREATE TEXT SEARCH DICTIONARY ep50608Syn
+(TEMPLATE = synonym,
+SYNONYMS = ep50608Syn);
+
+function	work
+perform	work
+
+fun	entertain
+amusement	entertain
+leisure	entertain
+
+shipment deliveri
+transport	deliveri
+transportation	deliveri
+distribution	deliveri
+dispatch	deliveri
+
+Sparila sam sinonime pojmova koji se pojavljuju u tablici. 
+Uz to pojam koji povezuje sinonime već je u normaliziranom obliku (npr entertain umjesto entertainment, deliveri umjesto delivery).
+Kad riječnik prepozna token više se ne konzultiraju rječnici nakon njega. Npr. da se shipment prevede ovim rječnikom kao 'delivery' kasnije se ne bi normalizirao u 'deliveri' jer je već obrađen. Ovako se osigurava normalizacija riječi koje imaju sinonime u rječniku.	
+
+
+5.)
+
+ALTER TEXT SEARCH CONFIGURATION ep50608
+ALTER MAPPING FOR asciiword,word
+WITH ep50608Syn, english_stem, simple; 
+
+
+SELECT * 
+FROM ts_debug('ep50608', 
+			  (SELECT question FROM games
+				WHERE asin LIKE 'B000S1KZZ61200'));
+
+U zadanom tekstu se koristi riječ shipment. Kako je rječnik sa sinonimima prvi koje se pokuša koristiti u lexemes stupcu je doista pokazan odabrani (i normalizirani) sinonim.
+Ostale riječi koje se mogu normalizirati pronađu se u rječniku english_stem (npr France -> franc). Preostale riječi obrade se simple rječnikom.
+U stupcu dictionaries vidljiv je opisani redoslijed korištenih rječnika.
+
+
+6.)
+
+SELECT question 
+FROM games
+WHERE question @@ plainto_tsquery('really difficult mode')
+
+SELECT question 
+FROM games
+WHERE question @@ phraseto_tsquery('really difficult mode')
+
+SELECT question 
+FROM games
+WHERE question @@ tsquery_phrase( 'really', 'mode', 2 )
+
+!!! za 3. je bila pomoc s koristenjem <-> i < N > ali ja to nisam?
+
+U prvom upitu se traže sve 3 riječi iz query teksta i one su pronađene u 3 pitanja, ali jednom primjeru su riječi razdvojene drugim riječima koje nisu u query dijelu (actually).
+Pretraga queryja kao fraze dodatno filtrira i prikazuje samo 2 pitanja u kojima tražene riječi slijede jedna drugu kao u upitu.
+U trećem upitu traže se dvije riječi odvojene jednom koja nije zadana. Stoga osim pitanja s frazom "really difficult mode" upit nalazi i frazu "really easy mode".
+
+
+7.)
+
+(pomocno)
+SELECT * 
+FROM games 
+WHERE asin = 'B0000512IE134789';
+
+SELECT setweight(to_tsvector('ep50608', COALESCE(answer,'')), 'A') ||  
+     setweight(to_tsvector('ep50608', COALESCE(question,'')), 'B') ||
+	 setweight(to_tsvector('ep50608', COALESCE(questiontype,'')), 'C') ||  
+     setweight(to_tsvector('ep50608', COALESCE(answertime,'')), 'D')
+FROM games 
+WHERE asin = 'B0000512IE134789'  
+;
+
+Rezultat upita prikazan je kao niz riječi/znakova koji se nalaze u originalnom zapisu.
+Uz njih piše položaj riječi u dokumentu kao i za zadatak važna težina leksema. 
+Odgovor (answer) je označen kao najbitniji stupac, njegova vrijednost je "Yes." i u rezultatu uz "yes" piše najveća težina, A.
+Uz riječi iz pitanja (question), drugog najbitnijeg stupca, zapisano je slovo B. Analogno je i za C. Za answertime označen težinom D ne ispisuje se "D", time se prikazuje da ima najmanju težinu.
+
+SELECT ts_rank(setweight(to_tsvector(
+	'Should I also need the PlayStation Eye to play Just Dance on the TV , or will be ok if I just buy the Move Motion Controller?'),
+						 'D'),	-- A ili B ili C ili D
+			   to_tsquery('controller'));
+			   
+U isječcima ekrana se vidi promjena relevantnosti. Ista tražena riječ tražena je u istom tekstu svaki put, promijeni se samo težina teksta. Kroz 4 različite težine vide se 4 različita ranka.
+
+
+8.)
+
+SELECT games.answer, ts_rank(to_tsvector(games.answer), to_tsquery('cobra & junior'))
+FROM games
+WHERE asin = 'B0095P5K8I6894'; --koristeni asin: B0095P5K8I6894, B0095P5K8I6895, B0095P5K8I6896
+
+Kad poraste frekvencija riječi, poraste i rang dokumenta. Kada je su se u dokumentu po jednom pojavile riječi cobra i junior rang je bio otprilike 0.10.
+Kada su se obje riječi pojavile dvaput, rang je postao 0.34, preko tri puta veći je. 
+Učestalost više riječi u ovom upitu može biti nepovezana i frekvencija svake pojedinačno riječi mijenja rang. 
+Stoga i kada postoji samo jedna riječ cobra, ali dvije junior, rang se poveća s 0.10 na 0.19.
+S porastom frekvencije bilo koje riječi iz zadanog queryja rang će se povećati.
+
+
+SELECT asin, LENGTH(games.answer), ts_rank(to_tsvector(games.answer), to_tsquery('Turtle & Beach & Ear & Force'), 2)	-- zadnji argument mijenjan: 0, 1, 2
+FROM games
+WHERE asin = 'B00B3PDHBU8201' OR asin = 'B00B3PDHBU8202' OR asin = 'B00B3PDHBU8203'
+ORDER BY asin;
+
+U prvom redu koristio se odgovor asin = 'B00B3PDHBU8201' koji u sebi ima ime slušalica "Turtle Beach Ear Force".
+U drugom redu koristio se odgovor asin = 'B00B3PDHBU8202' koji ima tekst iz prethodnog upita napisan dvaput, samo umjesto ponavljanja traženih riječi ima druge znakove (turtle -> ******).
+U trećem upitu koristio se asin = 'B00B3PDHBU8203', odgovor iz prvog upita napisan točno dvaput.
+Ako je zadnji argument funkcije ts_rank 0 ili nije naveden, rang ne ovisi o duljini cijelog teksta.
+Različiti argumenti označavaju različite načine rangiranja. Npr. "1" označava dijeljenje ranga s (1 + logaritam duljine dokumenta). 
+Način "2" označava dijeljenje ranga s duljinom dokumenta.
+Različiti načini rezultiraju različitim poretkom rangova (način 1 - treći je višeg ranga od prvog, 2 - prvi je višeg ranga od trećeg). Pri korištenju je bitno da korisnik točno definira koji način mu najbolje koristi za zadatak.
+
+
+9.)
+
+SELECT DISTINCT levenshtein(t1.questiontype, t2.questiontype) AS levenshtein, t1.questiontype, t2.questiontype
+FROM games t1
+CROSS JOIN games t2
+WHERE t1.questiontype NOT LIKE t2.questiontype
+ORDER BY levenshtein;
+
+SELECT DISTINCT levenshtein(t1.questiontype, t2.questiontype) AS levenshtein, t1.questiontype, t2.questiontype
+FROM games t1
+CROSS JOIN games t2
+WHERE levenshtein(t1.questiontype, t2.questiontype) = (SELECT MIN(levenshtein(t3.questiontype, t4.questiontype))
+	FROM games t3
+	CROSS JOIN games t4
+	WHERE t3.questiontype NOT LIKE t4.questiontype);
+
+Minimalan broj promjena dvije riječi računa se pomoću Levenshteinove udaljenosti.
+Dva ista izraza imala bi 0 potrebnih promjena, ali taj slučaj se zanemario kako bi se pokazala funkcionalnost levenshtein funkcije.
+Kroz upit su prikazane dvije opcije za 'minimalan broj promjena,' obje s dvije promjene.
+Prva je par 'otvoreno'-'zatvoreno', gdje se 'o' mijenja sa 'za' (1 izmjena slova, 1 brisanje/dodavanje).
+Druga opcija je par 'kratko pitanje'-'kratka pitanja', gdje se u obje riječi treba izmjeniti zadnje slovo kako bi se dobio drugi član para.
+
+
+SELECT DISTINCT similarity(t1.questiontype, t2.questiontype) AS similarity, t1.questiontype, t2.questiontype
+FROM games t1
+CROSS JOIN games t2
+WHERE t1.questiontype NOT LIKE t2.questiontype
+ORDER BY similarity DESC;
+
+SELECT DISTINCT similarity(t1.questiontype, t2.questiontype) AS similarity, t1.questiontype, t2.questiontype
+FROM games t1
+CROSS JOIN games t2
+WHERE similarity(t1.questiontype, t2.questiontype) = (SELECT MAX(similarity(t3.questiontype, t4.questiontype))
+	FROM games t3
+	CROSS JOIN games t4
+	WHERE t3.questiontype NOT LIKE t4.questiontype);
+
+Sličnost računana na temelju trigrama računa se pomoću funkcije similarity.
+Dva ista izraza imala bi najvišu sličnost, 1.0, ali taj slučaj se zanemario kako bi se pokazala funkcionalnost similarity funkcije.
+Rezultat s najvišom vrijednosti (0.88) su par 'kratko pitanje' i 'pitanje je kratko'.
+Funkcijom show_trgm mogu se ispisati i analizirati svi trigrami izraza. 
+'kratko pitanje' ima 15 trigrama od kojih se svaki se pojavljuje i u 'kratko je pitanje' (koje ima još 2 trigrama više).
+Zbog takve sličnosti imaju vrlo visok similarity koeficijent.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

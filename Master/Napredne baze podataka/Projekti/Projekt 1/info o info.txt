@@ -1,0 +1,42 @@
+Razlicite tezine (razliciti stupci):
+Corsair Vengeance	--> u odgovoru, pitanju
+B00DCBDNW6 Final Fantasy XIV 	--> u svemu (pitanje, odgovor, datum, tip pitanja)
+B002I0HD9G Test Drive Unlimited 	--> dvaput u datumu, jednom u odgovoru
+B002I0J51U Move Motion Controller	--> dvaput u pitanju, jednom u odgovoru
+
+Relevantnost raste s porastom frekvencije riječi iz upita:
+B00919RM1Q Casino Games 
+B0095P5K8I Cobra Junior  --> jednom dvaput jedan i pol put
+
+Kako duljina teksta utjece na rangiranje:
+B00B3PDHBU Turtle Beach Ear Force   --> jednom spomenuto, tekst umjereno velik, jednom dvaput triput
+B00BGA9YZK Killzone Shadow Fall	--> jednom spomenuto, tekst je samo No jednom dvaput triput
+B00CD1FC6G Corsair Vengeance --> spomenuto jednom jednom dvaput dvaput, tekst dugacak jednom dvaput dvaput triput
+
+HR:
+NEMA KVACICA
+JEDNOM pitanje je dugaÄŤkoa
+
+korijen rijeci:
+dug (dugacko dugacak dugo dugacka)
+vel (velik veliko)
+tvor (otvoreno zatvoreno)
+krat (kratko)
+mal (malo maleni)
+pit (pitanje pitanja upit)
+htj (zahtjev)
+
+sinonimi:
+dugačko (dugo dugačka dugačak) veliko (velik) otvoreno
+kratko (kratka) malo (maleni) zatvoreno
+pitanje (pitanja) upit zahtjev
+
+stop rijeci:
+naš
+je
+
+
+HOST:
+xivdb.com
+Flight.com
+logiTech.coM

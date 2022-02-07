@@ -1,0 +1,259 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group expanded="1" checked="Qt::Checked" name="">
+    <customproperties>
+      <Option/>
+    </customproperties>
+    <layer-tree-layer id="landuse_30f88e42_1b24_48cf_a4cc_5d90fcd71ce3" expanded="1" patch_size="-1,-1" checked="Qt::Checked" providerKey="postgres" source="dbname='GISDB' host=localhost port=5432 sslmode=disable key='gid' srid=3765 type=MultiPolygon checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;landuse&quot; (geom)" legend_exp="" legend_split_behavior="0" name="green2">
+      <customproperties>
+        <Option/>
+      </customproperties>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer simplifyAlgorithm="0" simplifyDrawingTol="1" geometry="Polygon" wkbType="MultiPolygon" autoRefreshTime="0" maxScale="0" simplifyMaxScale="1" minScale="100000000" readOnly="0" hasScaleBasedVisibilityFlag="0" type="vector" symbologyReferenceScale="-1" refreshOnNotifyMessage="" simplifyLocal="1" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" labelsEnabled="0" autoRefreshEnabled="0" simplifyDrawingHints="1" legendPlaceholderImage="">
+      <extent>
+        <xmin>264713.84916840691585094</xmin>
+        <ymin>4700754.61428138148039579</ymin>
+        <xmax>737327.86384453705977648</xmax>
+        <ymax>5162304.05537791270762682</ymax>
+      </extent>
+      <wgs84extent>
+        <xmin>13.43116934869750345</xmin>
+        <ymin>42.41014946510216532</ymin>
+        <xmax>19.59542122490275773</xmax>
+        <ymax>46.60032831711039591</ymax>
+      </wgs84extent>
+      <id>landuse_30f88e42_1b24_48cf_a4cc_5d90fcd71ce3</id>
+      <datasource>dbname='GISDB' host=localhost port=5432 sslmode=disable key='gid' srid=3765 type=MultiPolygon checkPrimaryKeyUnicity='1' table="public"."landuse" (geom)</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>green2</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["HTRS96 / Croatia TM",BASEGEOGCRS["HTRS96",DATUM["Croatian Terrestrial Reference System",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4761]],CONVERSION["Croatia Transverse Mercator",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",16.5,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large scale)."],AREA["Croatia - onshore."],BBOX[42.34,13.43,46.54,19.43]],ID["EPSG",3765]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=16.5 +k=0.9999 +x_0=500000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1723</srsid>
+          <srid>3765</srid>
+          <authid>EPSG:3765</authid>
+          <description>HTRS96 / Croatia TM</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt>PROJCRS["HTRS96 / Croatia TM",BASEGEOGCRS["HTRS96",DATUM["Croatian Terrestrial Reference System",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4761]],CONVERSION["Croatia Transverse Mercator",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",16.5,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large scale)."],AREA["Croatia - onshore."],BBOX[42.34,13.43,46.54,19.43]],ID["EPSG",3765]]</wkt>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=16.5 +k=0.9999 +x_0=500000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+            <srsid>1723</srsid>
+            <srid>3765</srid>
+            <authid>EPSG:3765</authid>
+            <description>HTRS96 / Croatia TM</description>
+            <projectionacronym>tmerc</projectionacronym>
+            <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider encoding="">postgres</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal startField="" durationUnit="min" endField="" durationField="" startExpression="" endExpression="" enabled="0" accumulate="0" mode="0" fixedDuration="0" limitMode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <renderer-v2 type="singleSymbol" referencescale="-1" forceraster="0" symbollevels="0" enableorderby="0">
+        <symbols>
+          <symbol clip_to_extent="1" type="fill" name="0" alpha="1" force_rhr="0">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option type="QString" value="" name="name"/>
+                <Option name="properties"/>
+                <Option type="QString" value="collection" name="type"/>
+              </Option>
+            </data_defined_properties>
+            <layer locked="0" enabled="1" pass="0" class="SimpleFill">
+              <Option type="Map">
+                <Option type="QString" value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale"/>
+                <Option type="QString" value="213,180,60,255" name="color"/>
+                <Option type="QString" value="bevel" name="joinstyle"/>
+                <Option type="QString" value="0,0" name="offset"/>
+                <Option type="QString" value="3x:0,0,0,0,0,0" name="offset_map_unit_scale"/>
+                <Option type="QString" value="MM" name="offset_unit"/>
+                <Option type="QString" value="35,35,35,255" name="outline_color"/>
+                <Option type="QString" value="solid" name="outline_style"/>
+                <Option type="QString" value="0.26" name="outline_width"/>
+                <Option type="QString" value="MM" name="outline_width_unit"/>
+                <Option type="QString" value="solid" name="style"/>
+              </Option>
+              <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="color" v="213,180,60,255"/>
+              <prop k="joinstyle" v="bevel"/>
+              <prop k="offset" v="0,0"/>
+              <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="offset_unit" v="MM"/>
+              <prop k="outline_color" v="35,35,35,255"/>
+              <prop k="outline_style" v="solid"/>
+              <prop k="outline_width" v="0.26"/>
+              <prop k="outline_width_unit" v="MM"/>
+              <prop k="style" v="solid"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" value="" name="name"/>
+                  <Option name="properties"/>
+                  <Option type="QString" value="collection" name="type"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option type="QString" value="&quot;name&quot;"/>
+          </Option>
+        </Option>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks type="StringList">
+          <Option type="QString" value=""/>
+        </activeChecks>
+        <checkConfiguration/>
+      </geometryOptions>
+      <legend type="default-vector" showLabelLegend="0"/>
+      <referencedLayers/>
+      <fieldConfiguration>
+        <field configurationFlags="None" name="gid">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="osm_id">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="code">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="fclass">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="None" name="name">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias field="gid" index="0" name=""/>
+        <alias field="osm_id" index="1" name=""/>
+        <alias field="code" index="2" name=""/>
+        <alias field="fclass" index="3" name=""/>
+        <alias field="name" index="4" name=""/>
+      </aliases>
+      <defaults>
+        <default field="gid" expression="" applyOnUpdate="0"/>
+        <default field="osm_id" expression="" applyOnUpdate="0"/>
+        <default field="code" expression="" applyOnUpdate="0"/>
+        <default field="fclass" expression="" applyOnUpdate="0"/>
+        <default field="name" expression="" applyOnUpdate="0"/>
+      </defaults>
+      <constraints>
+        <constraint notnull_strength="1" field="gid" constraints="3" unique_strength="1" exp_strength="0"/>
+        <constraint notnull_strength="0" field="osm_id" constraints="0" unique_strength="0" exp_strength="0"/>
+        <constraint notnull_strength="0" field="code" constraints="0" unique_strength="0" exp_strength="0"/>
+        <constraint notnull_strength="0" field="fclass" constraints="0" unique_strength="0" exp_strength="0"/>
+        <constraint notnull_strength="0" field="name" constraints="0" unique_strength="0" exp_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="gid" desc="" exp=""/>
+        <constraint field="osm_id" desc="" exp=""/>
+        <constraint field="code" desc="" exp=""/>
+        <constraint field="fclass" desc="" exp=""/>
+        <constraint field="name" desc="" exp=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;fclass&quot;" sortOrder="0">
+        <columns>
+          <column type="field" width="-1" hidden="0" name="gid"/>
+          <column type="field" width="-1" hidden="0" name="osm_id"/>
+          <column type="field" width="-1" hidden="0" name="code"/>
+          <column type="field" width="-1" hidden="0" name="fclass"/>
+          <column type="field" width="-1" hidden="0" name="name"/>
+          <column type="actions" width="-1" hidden="1"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable/>
+      <labelOnTop/>
+      <reuseLastValue/>
+      <dataDefinedFieldProperties/>
+      <widgets/>
+      <previewExpression>"name"</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>
