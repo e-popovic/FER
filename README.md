@@ -1,5 +1,5 @@
 # FER
-University projects (2017 - 2021)
+University projects (2017 - 2023)
 ------------------------------------
 Faculty of Electrical Engineering and Computing, University of Zagreb
 
